@@ -1,25 +1,36 @@
-\part{Referencial Teórico}
+% \part{Referencial Teórico}
 
 \chapter[Referencial Teórico]{Referencial Teórico}
 
-O que são problemas de otimização?
+A busca pela "melhor" configuração ou conjunto de parâmetros para um determinado objetivo é uma preocupação recorrente de problemas práticos e teóricos \cite{combinatorialoptimization1998}. Em muitos desses problemas, realizar uma busca exaustiva por todos os estados a fim de encontrar uma condição não é viável devido ao tamanho de possibilidades a serem testadas. 
 
-Qual a relevância desses problemas?
+Para a solução desses problemas, métodos de aproximação (heurísticas) que geram resultados de alta qualidade, em um tempo razoável para uso prático, vem sendo adotados \cite{gendreau2005metaheuristics}. Com o desenvolvimento dessa área de pesquisa, esses modos de aproximação foram sendo melhor estruturados e conceituados, criando um nível generalista de heurísticas (meta-heurísticas).
 
-Como são resolvidos? Por que heurísticas e não soluções exatas?
+% Essa conceituação abaixo é necessária? Ou com o final do paragrafo anterior é possível entender o que são meta-heurísticas? Seria interessante colocar algum exemplo? Ou até mesmo falar quando foi primeiro utilizado esse termo de heurísticas na solução de problemas de otimização?
+Os métodos de busca meta-heurísticos podem ser definidos como metodologias, modelos, de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas específicos de otimização \cite{talbi2009metaheuristics}.
 
-Necessidade de aplicação de heurísticas para problemas de otimização
+% É importante voltar tanto assim? Ou quebra muito o contexto? Vi que quebrou um pouco o ritmo de leitura, mas achei interessante mencionar
+A ciência da computação, desde seus primórdios, também lida comumente com problemas de otimização, como é mostrado por Menabrea e Lovelace em suas notas - especialmente a nota D, em que relatam que é preferível escolher um arranjo que tenderá a reduzir o tempo necessário para completar o cálculo, se referindo a máquina de calcular de Babbage, do que necessariamente o arranjo exato \cite{menabrea1842sketch}.
+
+Na comunidade acadêmica, as linhas de pesquisa que empregam meta-heurísticas para a resolução de problemas de otimização são denominadas baseadas em busca, do inglês \textit{search-based}.
 
 \section{Teste de software baseado em busca}
 
-Como surgiram os primeiros casos de SBST? Quais os problemas e como
-eles conseguiram resolver (brevemente) ?
+Na engenharia de software, o primeiro trabalho com o uso de técnicas para otimização foi na área de testes. Em 1969, King utilizou a execução simbólica automatizada para checar a consistência entre o programa e suas proposições \cite{king1969program}. 
 
-Mostrar que a área de SBST foi a primeira área de ESW que aplicou SBO. Daí, derivaram outras frentes de SBO em ESW.
+Anos depois surgiram os primeiros trabalhos utilizando meta-heurísticas. Como é o caso do SELECT, sistema para teste e depuração de programas utilizando execução simbólica aliada com a meta-heurística de subida da encosta \cite{boyer1975select}.
+
+% É necessário explicar melhor o que esses trabalhos contribuíram?
+Na mesma época, a utilização de meta-heurísticas se estendeu para a geração de caso de teste, área que ganhou enorme apreço por pesquisa. O trabalho de geração automática de dados de ponto flutuante \cite{miller1976automatic} acabou sendo um marco para os testes de software. Bem como, anos depois, a utilização de algoritmo genético para geração de dados de teste para a cobertura estrutural \cite{xanthakis1992application}.
+
+A partir de então, as pesquisas foram combinando entre as meta-heurísticas - subida de encosto, algoritmos genéticos, colônia de formigas, recozimento simulado - e os diversos tipos de testes  conhecidos - testes estruturais, testes funcionais e não funcionais, testes de segurança, testes de robustez, testes de estresse, testes de mutação, testes de integração e testes de exceção \cite{harman2009search}.
+
+Além da área de teste, outros ramos da engenharia de software começaram a utilizar as técnicas de busca, como foi o caso da estimativa de custos e do gerenciamento de projetos. O surgimentos de trabalhos fez a necessidade de melhor estruturar e definir a engenharia de software baseada em busca.
 
 \subsection{Engenharia de software baseada em busca}
 
-Evolução da outras áreas da ESW (SBSE)
+O termo engenharia de software baseada em busca foi pela primeira vez expressado por o manifesto \cite{harman2001search}, que propôs a reformulação da engenharia de software como um problema de busca. 
+
 
 Mostrar relevância de SBSE para ESW
 

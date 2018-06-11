@@ -2,52 +2,136 @@
 
 \chapter[Referencial Teórico]{Referencial Teórico}
 
-A busca pela "melhor" configuração ou conjunto de parâmetros para um determinado objetivo é uma preocupação recorrente de problemas práticos e teóricos \cite{combinatorialoptimization1998}. Em muitos desses problemas, realizar uma busca exaustiva por todos os estados a fim de encontrar uma condição não é viável devido ao tamanho de possibilidades a serem testadas. 
+A busca pela ``melhor'' configuração ou conjunto de parâmetros para um
+determinado objetivo é uma preocupação recorrente de problemas práticos e
+teóricos \cite{combinatorialoptimization1998}. Em muitos desses problemas,
+realizar uma busca exaustiva por todos os estados a fim de encontrar uma
+condição não é viável devido ao tamanho de possibilidades a serem testadas. 
 
-Para a solução desses problemas, métodos de aproximação (heurísticas) que geram resultados de alta qualidade, em um tempo razoável para uso prático, vem sendo adotados \cite{gendreau2005metaheuristics}. Com o desenvolvimento dessa área de pesquisa, esses modos de aproximação foram sendo melhor estruturados e conceituados, criando um nível generalista de heurísticas (meta-heurísticas).
+Para a solução desses problemas, métodos de aproximação (heurísticas) que geram
+resultados de alta qualidade, em um tempo razoável para uso prático, vem sendo
+adotados \cite{gendreau2005metaheuristics}. Com o desenvolvimento dessa área de
+pesquisa, esses modos de aproximação foram sendo melhor estruturados e
+conceituados, criando um nível generalista de heurísticas (meta-heurísticas).
 
-% Essa conceituação abaixo é necessária? Ou com o final do paragrafo anterior é possível entender o que são meta-heurísticas? Seria interessante colocar algum exemplo? Ou até mesmo falar quando foi primeiro utilizado esse termo de heurísticas na solução de problemas de otimização?
-Os métodos de busca meta-heurísticos podem ser definidos como metodologias, modelos, de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas específicos de otimização \cite{talbi2009metaheuristics}.
+% Essa conceituação abaixo é necessária? Ou com o final do paragrafo anterior é
+% possível entender o que são meta-heurísticas? Seria interessante colocar algum
+% exemplo? Ou até mesmo falar quando foi primeiro utilizado esse termo de
+% heurísticas na solução de problemas de otimização?
 
-% É importante voltar tanto assim? Ou quebra muito o contexto? Vi que quebrou um pouco o ritmo de leitura, mas achei interessante mencionar
-A ciência da computação, desde seus primórdios, também lida comumente com problemas de otimização, como é mostrado por Menabrea e Lovelace em suas notas - especialmente a nota D, em que relatam que é preferível escolher um arranjo que tenderá a reduzir o tempo necessário para completar o cálculo, se referindo a máquina de calcular de Babbage, do que necessariamente o arranjo exato \cite{menabrea1842sketch}.
+% ALPML: certamente! Contudo é necessário detalhar essa explicação e esclarecer
+% os vários termos citados. O que é meta-heuristica? O que significa ser de
+% nível superior? O que é uma estratégia de orientação? O que é um problema de
+% otimização?
+Os métodos de busca meta-heurísticos podem ser definidos como metodologias,
+modelos, de nível superior que podem ser usados como estratégias de orientação
+no projeto de heurísticas subjacentes para resolver problemas específicos de
+otimização \cite{talbi2009metaheuristics}.
 
-Na comunidade acadêmica, as linhas de pesquisa que empregam meta-heurísticas para a resolução de problemas de otimização são denominadas baseadas em busca, do inglês \textit{search-based}.
+% É importante voltar tanto assim? Ou quebra muito o contexto? Vi que quebrou um
+% pouco o ritmo de leitura, mas achei interessante mencionar
+
+% ALPML: é um bom exemplo para mostrar que a busca por melhores configurações
+% vem de muito tempo atrás. Vale mencionar esse exemplo como um dos primórdios
+% da busca por boas soluções em problemas em computacao.
+A ciência da computação, desde seus primórdios, também lida comumente com
+problemas de otimização, como é mostrado por Menabrea e Lovelace em suas notas -
+especialmente a nota D, em que relatam que é preferível escolher um arranjo que
+tenderá a reduzir o tempo necessário para completar o cálculo, se referindo a
+máquina de calcular de Babbage, do que necessariamente o arranjo exato
+\cite{menabrea1842sketch}.
+
+Na comunidade acadêmica, as linhas de pesquisa que empregam meta-heurísticas
+para a resolução de problemas de otimização são denominadas baseadas em busca,
+do inglês \textit{search-based}.
 
 \section{Teste de software baseado em busca}
 
-Na engenharia de software, o primeiro trabalho com o uso de técnicas para otimização foi na área de testes. Em 1969, King utilizou a execução simbólica automatizada para checar a consistência entre o programa e suas proposições \cite{king1969program}. 
+Na engenharia de software, o primeiro trabalho com o uso de técnicas para
+otimização foi na área de testes. Em 1969, King utilizou a execução simbólica
+automatizada para checar a consistência entre o programa e suas proposições
+\cite{king1969program}. 
 
-Anos depois surgiram os primeiros trabalhos utilizando meta-heurísticas. Como é o caso do SELECT, sistema para teste e depuração de programas utilizando execução simbólica aliada com a meta-heurística de subida da encosta \cite{boyer1975select}.
+Anos depois surgiram os primeiros trabalhos utilizando meta-heurísticas. Como é
+o caso do SELECT, sistema para teste e depuração de programas utilizando
+execução simbólica aliada com a meta-heurística de subida da encosta
+\cite{boyer1975select}.
 
 % É necessário explicar melhor o que esses trabalhos contribuíram?
-Na mesma época, a utilização de meta-heurísticas se estendeu para a geração de caso de teste, área que ganhou enorme apreço por pesquisa. O trabalho de geração automática de dados de ponto flutuante \cite{miller1976automatic} acabou sendo um marco para os testes de software. Bem como, anos depois, a utilização de algoritmo genético para geração de dados de teste para a cobertura estrutural \cite{xanthakis1992application}.
 
-A partir de então, as pesquisas foram combinando entre as meta-heurísticas - subida de encosta, algoritmos genéticos, colônia de formigas, recozimento simulado - e os diversos tipos de testes  conhecidos - testes estruturais, testes funcionais e não funcionais, testes de segurança, testes de robustez, testes de estresse, testes de mutação, testes de integração e testes de exceção \cite{harman2009search}.
+% ALPML: Sim, apresente mais detalhadamente cada um deles... Tente responder a
+% cada uma das perguntas abaixo
+% * Qual o contexto em que o trabalho está inserido? Por contexto entenda a área
+% de ESW em que ele está inserido (detalhadamente). 
+% * Qual o problema que o trabalho lida ou tenta resolver? Como esse problema é
+% caracterizado? 
+% * Qual a solução proposta no trabalho? Qual técnica de SBSE foi utilizada?
+Na mesma época, a utilização de meta-heurísticas se estendeu para a geração de
+caso de teste, área que ganhou enorme apreço por pesquisa. O trabalho de geração
+automática de dados de ponto flutuante \cite{miller1976automatic} acabou sendo
+um marco para os testes de software. Bem como, anos depois, a utilização de
+algoritmo genético para geração de dados de teste para a cobertura estrutural
+\cite{xanthakis1992application}.
 
-Além da área de teste, outros ramos da engenharia de software começaram a utilizar as técnicas de busca, como foi o caso da estimativa de custos e do gerenciamento de projetos \cite{de2011ten}. O surgimentos de trabalhos fez a necessidade de melhor estruturar e definir a engenharia de software baseada em busca.
+A partir de então, as pesquisas foram combinando entre as meta-heurísticas -
+subida de encosto, algoritmos genéticos, colônia de formigas, recozimento
+simulado - e os diversos tipos de testes  conhecidos - testes estruturais,
+testes funcionais e não funcionais, testes de segurança, testes de robustez,
+testes de estresse, testes de mutação, testes de integração e testes de exceção
+\cite{harman2009search}.
+
+Além da área de teste, outros ramos da engenharia de software começaram a
+utilizar as técnicas de busca, como foi o caso da estimativa de custos e do
+gerenciamento de projetos \cite{de2011ten}. O surgimentos de trabalhos fez a
+necessidade de melhor estruturar e definir a engenharia de software baseada em
+busca.
 
 \subsection{Engenharia de software baseada em busca}
 
-O termo engenharia de software baseada em busca foi pela primeira vez expressado pelo manifesto, que propôs a reformulação da engenharia de software como um problema de busca. Para tal reestruturação, é necessário definir uma representação do problema passível de manipulação simbólica, uma função de avaliação e um conjunto de operadores de manipulação \cite{harman2001search}.
+O termo engenharia de software baseada em busca foi pela primeira vez expressado
+pelo manifesto, que propôs a reformulação da engenharia de software como um
+problema de busca. Para tal reestruturação, é necessário definir uma
+representação do problema passível de manipulação simbólica, uma função de
+avaliação e um conjunto de operadores de manipulação \cite{harman2001search}.
 
-As definições citadas acimas contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função de avaliação, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
+As definições citadas acimas contribuem para o desenvolvimento da engenharia de
+software. Com tais, é possível observar a generalidade que se ganha com a
+representação de um problema e com a função de avaliação, e a robustez que os
+algoritmos de otimização proporcionam \cite{harman2012search}. 
 
-Além disso, pode ser observada a escalabilidade através do paralelismo que as meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de software e a computação direta dos problemas \cite{harman2012search}. Isso, devido ao software já estar representada de maneira lógica, diferente de outras engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a representação de um material físico, o que necessita de um alto poder computacional.
+Além disso, pode ser observada a escalabilidade através do paralelismo que as
+meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de
+software e a computação direta dos problemas \cite{harman2012search}. Isso,
+devido ao software já estar representada de maneira lógica, diferente de outras
+engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a
+representação de um material físico, o que necessita de um alto poder
+computacional.
 
-Muito se pesquisou desde então sobre a engenharia de software baseada em busca. Como a área de testes é a de interesse, optou-se por adentrar como os tipos de testes são explorados.
+Muito se pesquisou desde então sobre a engenharia de software baseada em busca.
+Como a área de testes é a de interesse, optou-se por adentrar como os tipos de
+testes são explorados.
 
 \subsection{Objetivos pesquisados}
 
-A otimização por busca se encontra difundida em testes, pois é possível ver ela atuando em todas as dimensões do teste. Seja ele estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional.
+A otimização por busca se encontra difundida em testes, pois é possível ver ela
+atuando em todas as dimensões do teste. Seja ele estrutural (caixa branca),
+funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional.
 
 \subsubsection{Teste estrutural}
 
-Essa área, desde os primórdios, foi a que mais recebeu esforços para o desenvolvimento. Principalmente, visando a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução. 
+Essa área, desde os primórdios, foi a que mais recebeu esforços para o
+desenvolvimento. Principalmente, visando a geração de casos e dados de teste
+para a cobertura de caminhos possíveis na execução. 
 
-A princípio, os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Ultimamente, se propõe testes com multi-objetivos. 
-% Nesse caso acima, tenho citar os artigos que são a referência para o conceito. Como, por exemplo, testes com multi-objetivos
-Neste meio tempo, discuti-se também sobre otimização de testes baseada no conceito à orientação. 
+A princípio, os casos de testes era individuais, ou seja, as funções de
+adaptação era construídas com base no caminho em que seria percorrido.
+Ultimamente, se propõe testes com multi-objetivos. 
+% Nesse caso acima, tenho citar os artigos que são a referência para o conceito.
+% Como, por exemplo, testes com multi-objetivos
+
+% ALPML: exatamente! 
+Neste meio tempo, discuti-se também sobre otimização de testes baseada no
+conceito à orientação. 
 
 
 Para cada problema, caracterizá-lo:

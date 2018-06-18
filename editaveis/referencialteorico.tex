@@ -2,25 +2,107 @@
 
 \chapter[Referencial Teórico]{Referencial Teórico}
 
-% Essa conceituação abaixo é necessária? Ou com o final do paragrafo anterior é
-% possível entender o que são meta-heurísticas? Seria interessante colocar algum
-% exemplo? Ou até mesmo falar quando foi primeiro utilizado esse termo de
-% heurísticas na solução de problemas de otimização?
+\section{Problema de otimização}
 
-% ALPML: certamente! Contudo é necessário detalhar essa explicação e esclarecer
-% os vários termos citados. O que é meta-heuristica? O que significa ser de
-% nível superior? O que é uma estratégia de orientação? O que é um problema de
-% otimização?
+A otimização é um termo que advém da matemática, a qual em sua essência está preocupada com a obtenção das condições que dão o valor extremo de uma função, ou de várias funções, sob determinadas circunstâncias. A definição formal matemática poder ser dada como: 
+
+\begin{eqnarray}
+\label{eqn01}
+	 \textsf{Encontrar \textbf{x} que minimize \textbf{f(x)} sujeito a} \nonumber \\
+     g_j(x) \leq 0, \qquad j = 1, 2, ..., n_g \\
+\label{eqn02}
+      h_k(x) = 0, \qquad k = 1, 2, ..., n_h \\
+\label{eqn03}
+      x_{i}^{L} \leq x_i \leq x_{i}^{U}, \qquad i = 1, 2, ..., n 
+\end{eqnarray}
+
+onde $x_{e}$ o vetor das n variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.
+
+Na definição, a função objetivo se refere ao que se quer maximizar ou minimizar, o conjunto de variáveis é o que afeta o valor da função objetivo e o conjunto de restrições é não permite que o conjunto de variáveis assuma
+determinados valores. Considerando isso, é possível classificar os problemas de otimização de acordo com esses fatores. Tal classificação é possível de observada na figura \ref{figotimizacao01}.
+
+Os problemas típicos de otimização vão desde a minimização de funções algébricas até assuntos mais práticos em projetos de engenharia, como a minimização de custos e a maximização de desempenho. A pergunta que todos esse tem em comum é "Dentre as soluções viáveis, qual é a melhor?". O meio que se busca para respondê-la, após a definição das restrições e da função objetivo, é por meio dos métodos de otimização. Os métodos de otimização que se ajustam a pergunta são os probabilísticos, no caso as heurísticas e meta-heurísticas \cite{gandomi2013metaheuristic}.
+
+\begin{figure}[h]
+	\centering
+	\label{figotimizacao01}
+    \tikzset{
+        basic/.style  = {draw, text width=4cm, drop shadow, font=\sffamily, rectangle},
+        root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                         fill=gray!60},
+        onode/.style = {basic, thin, align=center, fill=gray!40,text width=4cm,},
+        tnode/.style = {basic, thin, align=left, fill=gray!20, text width=6.5em},
+        edge from parent/.style={-, >={latex}, draw=black, edge from parent fork right}
+    }
+
+    \begin{tikzpicture} [%
+        grow=right,
+        anchor=west,
+        growth parent anchor=east,
+        parent anchor=east,
+        level 1/.style={sibling distance=6em},
+        level 2/.style={sibling distance=2.5em},
+        level distance=0.5cm]
+    \node[root] (root) {Classificação dos problemas de otimização}
+        child {node[onode] (c1) {Número de variáveis de projeto}
+            child {node[tnode] (c11) {Única Variável}}
+            child {node[tnode] (c12) {Multivariável}}
+        }
+        child {node[onode] (c2) {Número de funções objetivo}
+            child {node[tnode] (c21) {Único Objetivo}}
+            child {node[tnode] (c22) {Multiobjetivo}}
+        }
+        child {node[onode] (c3) {Presença de restrições}
+            child {node[tnode] (c31) {Sem restrições}}
+            child {node[tnode] (c32) {Com restrições}}
+        }
+        child {node[onode] (c4) {Tipo de variáveis de projeto}
+            child {node[tnode] (c41) {Discreta}}
+            child {node[tnode] (c42) {Contínua}}
+            child {node[tnode] (c43) {Mista}}
+        }
+        child {node[onode] (c5) {Característica das restrições e da função objetivo}
+            child {node[tnode] (c51) {Linear}}
+            child {node[tnode] (c52) {Não-linear}}
+        }
+        child {node[onode] (c5) {Natureza das variáveis e dados de entrada}
+            child {node[tnode] (c51) {Determinística}}
+            child {node[tnode] (c52) {Probabilística}}
+        };
+    \end{tikzpicture}
+    \caption{Classificação dos problemas de otimização}
+\end{figure}
+
+\section{Meta-heurísticas}
+
 Os métodos de busca meta-heurísticos podem ser definidos como metodologias,
 modelos, de nível superior que podem ser usados como estratégias de orientação
-no projeto de heurísticas subjacentes para resolver problemas específicos de
-otimização \cite{talbi2009metaheuristics}.
+no projeto de heurísticas subjacentes para resolver problemas de
+otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, enquanto as heurísticas são desenhadas e construídas para um problema específico. 
+
+Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas subjacentes. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e a função objetivo do problema em questão. 
+
+Em uma meta-heurísticas dois principais fatores são observados: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). Esses fatores, geralmente estão ligados ao tipo de solução que estão baseadas as meta-heurísticas. Sendo que as baseadas em solução única, como o recozimento simulado e a busca local, estão ligadas a intensificação e as baseadas na população, como algoritmos genético e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
+
+\subsection{Subida de Encosta}
+
+O algoritmo da subida de encosta é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado na busca em profundidade, que é um algoritmo utilizado para travessia em grafos. 
+
+A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado é examinado. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente, até que se não consiga encontra vizinhos melhores.  
+
+\subsection{Recozimento simulado}
+
+Recozimento simulado é uma meta-heurística similar a Subida de Encosta, com a diferença que a as movimentações no espaço de busca não são tão limitados. Para a exploração do espaço de busca, ele utiliza um parâmetro de controle denominado temperatura.
+
+\subsection{Algoritmo genético}
+
+\subsection{Inteligência de enxame}
+
+
+\section{Teste multi-objetivo baseado em busca}
 
 Na comunidade acadêmica, as linhas de pesquisa que empregam meta-heurísticas
-para a resolução de problemas de otimização são denominadas baseadas em busca,
-do inglês \textit{search-based}.
-
-\section{Teste de software baseado em busca}
+para a resolução de problemas de otimização são denominadas baseadas em busca, do inglês \textit{search-based}.
 
 Na engenharia de software, o primeiro trabalho com o uso de técnicas para
 otimização foi na área de testes. Em 1969, King utilizou a execução simbólica
@@ -107,24 +189,6 @@ Ultimamente, se propõe testes com multi-objetivos.
 % ALPML: exatamente! 
 Neste meio tempo, discuti-se também sobre otimização de testes baseada no
 conceito à orientação. 
-
-\section{Problema de otimização}
-
-\section{Meta-heurísticas}
-
-\subsection{Subida de encosta}
-
-O algoritmo da subida de encosta é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado na busca em profundidade, que é um algoritmo utilizado para travessia em grafos. 
-
-A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado é examinado. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente, até que se não consiga encontra vizinhos melhores.  
-
-\subsection{Recozimento simulado}
-
-\subsection{Algoritmo genético}
-
-\section{Teste multi-objetivo baseado em busca}
-
-
 
 
 

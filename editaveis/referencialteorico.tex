@@ -70,7 +70,7 @@ Os problemas típicos de otimização vão desde a minimização de funções al
             child {node[tnode] (c52) {Probabilística}}
         };
     \end{tikzpicture}
-    \caption{Classificação dos problemas de otimização}
+    \caption{Classificação dos problemas de otimização \cite{gandomi2013metaheuristic}}
 \end{figure}
 
 \section{Meta-heurísticas}
@@ -82,7 +82,9 @@ otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa qu
 
 Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas subjacentes. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e a função objetivo do problema em questão. 
 
-Em uma meta-heurísticas dois principais fatores são observados: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). Esses fatores, geralmente estão ligados ao tipo de solução que estão baseadas as meta-heurísticas. Sendo que as baseadas em solução única, como o recozimento simulado e a busca local, estão ligadas a intensificação e as baseadas na população, como algoritmos genético e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
+Em uma meta-heurísticas dois principais fatores são observados: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). Esses fatores, geralmente estão ligados ao tipo de solução que estão baseadas as meta-heurísticas. As baseadas em solução única, como o recozimento simulado e a busca local, estão ligadas a intensificação e as baseadas na população, como algoritmos genético e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
+
+As meta-heurísticas possuem uma grande variabilidade de classificação, que vão além dos fatores mostrados anteriormente. Um outro que pode ser citado é a inspiração, podendo ser baseada nos processos da natureza, a grande maioria, e não baseada em processos naturais. A maneira de decisão do algoritmos classifica as meta-heurísticas em determinísticas e estocásticas, em que regras aleatórias são aplicadas durante a busca. Dado essa diversidade, a Subida de Encosto, o Recozimento Simulado, o Algoritmo Genético e a Inteligência de Enxame ganham destaque, principalmente na área de engenharia de software \cite{khari2017extensive}.
 
 \subsection{Subida de Encosta}
 
@@ -90,9 +92,11 @@ O algoritmo da subida de encosta é um método simples que proporciona resultado
 
 A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado é examinado. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente, até que se não consiga encontra vizinhos melhores.  
 
-\subsection{Recozimento simulado}
+\subsection{Recozimento Simulado}
 
-Recozimento simulado é uma meta-heurística similar a Subida de Encosta, com a diferença que a as movimentações no espaço de busca não são tão limitados. Para a exploração do espaço de busca, ele utiliza um parâmetro de controle denominado temperatura.
+Recozimento simulado é um algoritmo similar a Subida de Encosta, com a diferença que a as movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca, ele utiliza um parâmetro de controle denominado temperatura. Ela é a probabilidade de aceitar soluções com menor valor de aptidão, as piores soluções \cite{kirkpatrick1983optimization}.
+
+O método consiste em iniciar com um valor alto de temperatura, e a medida que é aplicado o resfriamento, ou seja, a busca, a temperatura diminui até chegar a zero. Assim como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente.
 
 \subsection{Algoritmo genético}
 

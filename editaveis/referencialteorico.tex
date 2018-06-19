@@ -88,111 +88,41 @@ As meta-heurísticas possuem uma grande variabilidade de classificação, que v�
 
 \subsection{Subida de Encosta}
 
-O algoritmo da subida de encosta é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado na busca em profundidade, que é um algoritmo utilizado para travessia em grafos. 
+O algoritmo da Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado na busca em profundidade, que é um algoritmo utilizado para travessia em grafos. 
 
 A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado é examinado. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente, até que se não consiga encontra vizinhos melhores.  
 
 \subsection{Recozimento Simulado}
 
-Recozimento simulado é um algoritmo similar a Subida de Encosta, com a diferença que a as movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca, ele utiliza um parâmetro de controle denominado temperatura. Ela é a probabilidade de aceitar soluções com menor valor de aptidão, as piores soluções \cite{kirkpatrick1983optimization}.
+Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar a Subida de Encosta, com a diferença que a as movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca, ele utiliza um parâmetro de controle denominado temperatura. Ela é a probabilidade de aceitar soluções com menor valor de aptidão, as piores soluções \cite{kirkpatrick1983optimization}.
 
 O método consiste em iniciar com um valor alto de temperatura, e a medida que é aplicado o resfriamento, ou seja, a busca, a temperatura diminui até chegar a zero. Assim como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente.
 
 \subsection{Algoritmo genético}
 
-\subsection{Inteligência de enxame}
+Os algoritmos genéticos partem semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic}. Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística. Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada locus e os constituintes do resultado são por vezes denotados como genes.
 
+A escolha de uma população inicial aleatória, conjunto de cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos. As iterações, denominadas de gerações, terminam quando a condição pré-determinada é atingida ou quando o número de gerações é excessivo. Em casa geração, cromossomos são recombinados, cruzando seus genes. Uma parte da descendência dessa união sofre mutação e, a partir da prole e da população original, um processo de seleção é usado para determinar a nova população. Crucialmente, a recombinação e a seleção são guiadas pela função objetivo; cromossomos mais aptos tendo uma chance maior de serem selecionados e recombinados.
 
-\section{Teste multi-objetivo baseado em busca}
+\subsection{Inteligência de Enxame}
 
-Na comunidade acadêmica, as linhas de pesquisa que empregam meta-heurísticas
-para a resolução de problemas de otimização são denominadas baseadas em busca, do inglês \textit{search-based}.
+A meta-heurística Inteligência de Enxame (\textit{Swarm Intelligence}) tem como base o modelo biológico, com ênfase em como os indivíduos trabalham em conjunto com a distribuição de informações. As redes de fluxos de feromônios são o principal objetivo das formigas para decidir onde forragear. Se as formigas encontrarem aleatoriamente um obstáculo, elas procurarão métodos ao redor. No entanto, quando certas formigas encontram uma maneira de contorná-lo, as outras formigas seguem sua pista de feromônio para criar uma nova rota.
 
-Na engenharia de software, o primeiro trabalho com o uso de técnicas para
-otimização foi na área de testes. Em 1969, King utilizou a execução simbólica
-automatizada para checar a consistência entre o programa e suas proposições
-\cite{king1969program}. 
+A cooperação das formigas foi a primeira forma de organização biológica analisada. Porém, com o passar outros métodos de otimização de inteligência de enxame surgiram, como a Otimização por Enxame de Partículas (PSO), Otimização por Colônia de Abelhas (ABC) e a Otimização por Sistemas Artificiais Imunológicos (AIS) \cite{blum2008swarm}. Em todos esses são observados determinados comportamentos da colônia como um todo, e de cada individuo, criando um inteligência artificial própria, que vão agregar e constituir a formulação da função objetivo do problema de otimização. As iterações vão obedecer as restrições biológicas do enxame escolhido.
 
-Anos depois surgiram os primeiros trabalhos utilizando meta-heurísticas. Como é
-o caso do SELECT, sistema para teste e depuração de programas utilizando
-execução simbólica aliada com a meta-heurística de subida da encosta
-\cite{boyer1975select}.
+\section{Geração de Dados de Teste de Software Baseada em Busca}
 
-% É necessário explicar melhor o que esses trabalhos contribuíram?
+% As definições citadas acimas contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função objetivo, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
 
-% ALPML: Sim, apresente mais detalhadamente cada um deles... Tente responder a
-% cada uma das perguntas abaixo
-% * Qual o contexto em que o trabalho está inserido? Por contexto entenda a área
-% de ESW em que ele está inserido (detalhadamente). 
-% * Qual o problema que o trabalho lida ou tenta resolver? Como esse problema é
-% caracterizado? 
-% * Qual a solução proposta no trabalho? Qual técnica de SBSE foi utilizada?
-Na mesma época, a utilização de meta-heurísticas se estendeu para a geração de
-caso de teste, área que ganhou enorme apreço por pesquisa. O trabalho de geração
-automática de dados de ponto flutuante \cite{miller1976automatic} acabou sendo
-um marco para os testes de software. Bem como, anos depois, a utilização de
-algoritmo genético para geração de dados de teste para a cobertura estrutural
-\cite{xanthakis1992application}.
+% Além disso, pode ser observada a escalabilidade através do paralelismo que as meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de software e a computação direta dos problemas \cite{harman2012search}. Isso, devido ao software já estar representada de maneira lógica, diferente de outras engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a representação de um material físico, o que necessita de um alto poder computacional.
 
-A partir de então, as pesquisas foram combinando entre as meta-heurísticas -
-subida de encosto, algoritmos genéticos, colônia de formigas, recozimento
-simulado - e os diversos tipos de testes  conhecidos - testes estruturais,
-testes funcionais e não funcionais, testes de segurança, testes de robustez,
-testes de estresse, testes de mutação, testes de integração e testes de exceção
-\cite{harman2009search}.
+A otimização por busca se encontra difundida em testes, pois é possível notar a atuação em todas as dimensões do teste. Seja ele estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional. Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento. Principalmente, visando a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução \cite{khari2017extensive}. 
 
-\subsection{Engenharia de software baseada em busca}
+A geração de dados para teste constituti 
 
-Além da área de teste, outros ramos da engenharia de software começaram a
-utilizar as técnicas de busca, como foi o caso da estimativa de custos e do
-gerenciamento de projetos \cite{de2011ten}. O surgimentos de trabalhos fez a
-necessidade de melhor estruturar e definir a engenharia de software baseada em
-busca.
+\subsubsection{Teste multiobjetivos baseado em busca}
 
-O termo engenharia de software baseada em busca foi pela primeira vez expressado
-pelo manifesto, que propôs a reformulação da engenharia de software como um
-problema de busca. Para tal reestruturação, é necessário definir uma
-representação do problema passível de manipulação simbólica, uma função de
-avaliação e um conjunto de operadores de manipulação \cite{harman2001search}.
-
-As definições citadas acimas contribuem para o desenvolvimento da engenharia de
-software. Com tais, é possível observar a generalidade que se ganha com a
-representação de um problema e com a função de avaliação, e a robustez que os
-algoritmos de otimização proporcionam \cite{harman2012search}. 
-
-Além disso, pode ser observada a escalabilidade através do paralelismo que as
-meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de
-software e a computação direta dos problemas \cite{harman2012search}. Isso,
-devido ao software já estar representada de maneira lógica, diferente de outras
-engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a
-representação de um material físico, o que necessita de um alto poder
-computacional.
-
-Muito se pesquisou desde então sobre a engenharia de software baseada em busca.
-Como a área de testes é a de interesse, optou-se por adentrar como os tipos de
-testes são explorados.
-
-\subsection{Objetivos pesquisados}
-
-A otimização por busca se encontra difundida em testes, pois é possível ver ela
-atuando em todas as dimensões do teste. Seja ele estrutural (caixa branca),
-funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional.
-
-\subsubsection{Teste estrutural}
-
-Essa área, desde os primórdios, foi a que mais recebeu esforços para o
-desenvolvimento. Principalmente, visando a geração de casos e dados de teste
-para a cobertura de caminhos possíveis na execução. 
-
-A princípio, os casos de testes era individuais, ou seja, as funções de
-adaptação era construídas com base no caminho em que seria percorrido.
-Ultimamente, se propõe testes com multi-objetivos. 
-% Nesse caso acima, tenho citar os artigos que são a referência para o conceito.
-% Como, por exemplo, testes com multi-objetivos
-
-% ALPML: exatamente! 
-Neste meio tempo, discuti-se também sobre otimização de testes baseada no
-conceito à orientação. 
+A princípio, os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Ultimamente, se propõe testes com multi-objetivos. 
 
 
 

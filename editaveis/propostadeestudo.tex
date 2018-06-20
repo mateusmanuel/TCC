@@ -1,41 +1,75 @@
 \chapter[Apresentação da Proposta de Estudo]{Apresentação da Proposta de Estudo}
 
-Introdução ao capítulo (1 parágrafo)
-	Fazer um gancho com a contextualização apresentada nos capítulos 1 e 2. 
-Mostrar a necessidade de entender a relação entre cobertura de código e esforço de análise de cobertura de código. 
-		Resgatar a idéia de que testes atuais não são realísticos: o desenvolvedor olha para outros aspectos do teste além da cobertura. Ex.: esforço para o teste.
+A produção de dados para teste de forma automatizada é um dos principais avanços na área de engenharia de software. Isso, porque a necessidade de reproduzir comportamentos para a verificação de um código é fundamental para agregar valor no software. A geração desses dados por meta-heurísticas complementam e contribuem com o desenvolvedor. Todavia, nota-se que nem sempre esses testes gerados são realísticos. Em alguns casos acabam sendo custoso tanto o processo de geração dos dados, quanto a execução deles para medir a cobertura de código. Esses fatores, acabam sendo empecilhos para o crescimento e adoção das meta-heurísticas \cite{harman2015achievements}.
 
-Apresentação da proposta (+/- 3 parágrafos)
-	Parag. 1: Apresentação em linhas gerais da proposta de estudo:
-		Queremos avaliar o ponto em que o esforço para análise de cobertura e a geração de dados de testes que provêem uma cobertura razoável se equivalem. 
-		Apresentar brevemente qual a meta-heurística adotada e o motivo.
-	
-    Parag. 2: Apresentação do objetivo 1 - Geração de dados de teste para uma cobertura razoável.
-		Relação cobertura x esforço para geração de dados de teste é, intuitivamente, crescente; -> explicar em detalhes o suficiente para o leitor entender;
-		Ainda não sabemos o comportamento dessa relação (linear, logarítmica, exponencial, etc…) -> buscar entendimento sobre esse comportamento e,
-		O objetivo para essa relação é sempre de maximizar a cobertura.
-	
-    Parag. 3: Apresentação do objetivo 2 - Análise do esforço computacional em termos de (??? - tempo, espaço, comparações, etc...) para cobertura de código.
-		Relação entre esforço computacional da análise de cobertura e cobertura -> explicar em detalhes o suficiente para o leitor entender;
-		Também não se sabe o comportamento dessa relação mas sabe-se intuitivamente, a priori, que é uma relação crescente (linear, logarítmica, exponencial, etc…);
-		Objetivo para essa relação é de sempre minimizar o esforço computacional.
+Outro fator observado é que se produz e evolui as meta-heurísticas, mas pouco se estuda e analisa essas técnicas. A geração de dados de teste carece de estudo na avaliação do comportamento das iterações dos algoritmos empregados para a otimização de acordo com os testes produzidos. Algumas métricas que podem ser analisadas, por exemplo, são o tempo de execução e o número de iterações \cite{rodrigues2018using}. 
 
-	Parag. 4: Conclusão da proposta (1 parágrafo)
-		Mostrar que o estudo pretende encontrar o ponto de equilíbrio para os dois objetivos.
-		Esse problema pode ser encarado sob a ótica de Testes de Software Baseado em Pesquisa, como um problema de otimização multi-critérios.
+Os algoritmos genéticos são empregados com bastante frequência para a geração de dados para teste. A sua estruturação em passos (recombinação - mutação - avaliação - seleção) garante uma abrangência e ao mesmo tempo uma especificidade para os dados de teste. As duas primeiras etapas são fundamentais para promoção da variabilidade genética, enquanto que as duas últimas, tomando como base a função objetivo, restringem bem as gerações \cite{rodrigues2018using}. Esses passos são passíveis de otimização e por isso podem ser analisados a fim de que se compreenda o impacto na geração e na execução dos testes.
 
+Dado tais justificativas, abaixo é apresentado os dois principais objetivos da pesquisa, seguido do objetivo geral a ser alcançado. 
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\begin{description}
+\item[\namedlabel{obj1}{Objetivo 1}] Analisar a relação entre cobertura do código e o esforço computacional para geração de dados de teste utilizando algoritmo genético.
+
+A geração de dados para teste está ligada ao processos iterativos da meta-heurística empregada. Os algoritmos genéticos tem a característica de quanto maior a geração, mais custoso é o processo de evolução \cite{pargas1999test}. Por outro lado, essas gerações tendem a proporcionar dados de teste mais específicos. Intuitivamente, percebe-se que é uma relação crescente, mas não se sabe a forma (linear, logarítmica, exponencial). A finalidade é compreender melhor o comportamento dessas duas variáveis e como elas interagem entre si durante a produção dos dados de teste. 
+		
+
+\item[\namedlabel{obj2}{Objetivo 2}] Analisar o esforço computacional empregado para execução da cobertura de código a partir dos testes gerados por algoritmo genético.
+
+A depender de como os dados de teste são gerados eles podem provocar um determinado grau de esforço computacional a ser exigido na cobertura de código. Nesse aspecto, também é possível analisar que quanto mais testes são executados, e consequentemente, mais esforço computacional é necessário, maior é a cobertura. Intuitivamente, percebe-se novamente que é uma relação crescente, mas também não se sabe a forma da função. O que se deseja é entender o modo que essas variáveis se relacionam para os algoritmos genéticos.
+
+\end{description}
+
+Com esses objetivos, o que se deseja é encontrar o ponto de equilíbrio, ou seja o ponto ótimo, para ambas análises. Deseja-se estabelecer critérios e métricas para que se consiga analisar os aspectos a serem compreendidos. 
+
+Sendo assim, pode-se caracterizar o estudo de pesquisa como um problema de otimização, no qual se deseja diminuir o esforço computacional empregado para a geração de dados e execução dos teste e maximizar a cobertura de código. Como mostrado, este é um problema multiobjetivo, que se enquadra na área de Testes de Software Baseado em Busca.
 
 \section{Cronograma}
 
+De acordo com a proposta que foi apresentada algumas atividades foram planejadas para dar seguimento na pesquisa. A tabela \ref{cronograma} está divida em meses na vertical e nas atividades, descritas a seguir, na horizontal. 
 
-Ativ 1 - Estudar o comportamento das relações referentes aos objetivos 1 e 2, para uma meta-heurística específica (ex. alg. genético, etc…);
-Detalhar essa atividade: qual o intuito? o que se espera como resultado?
 
-Ativ 2 - Estudar e definir o modo como os esforços computacionais para os objetivos 1 e 2 podem ser medidos;
-Detalhar essa atividade: qual o intuito? O que se espera como resultado? -> definição da métrica de esforço.
+\begin{description}
+\item[\namedlabel{ativ1}{Atividade 1}] Estudar o comportamento das relações referentes ao \ref{obj1} e \ref{obj2}.
 
-Ativ 3 - Propor e analisar uma relação entre os dois objetivos que capture os esforços de ambos os objetivos do estudo.
+\item[\namedlabel{ativ2}{Atividade 2}] Estudar e definir o modo como os esforços computacionais para o \ref{obj1} e \ref{obj2} podem ser medidos.
+
+Como resultado a definição da métrica de esforço computacional.
+
+\item[\namedlabel{ativ3}{Atividade 3}] Propor e analisar uma relação entre o \ref{obj1} e \ref{obj2} que capture os esforços de ambos.
+
 Entender como o comportamentos das duas curvas se equiparam
+
+\item[\namedlabel{ativ4}{Atividade 4}] Escrita dos resultados 
+
+
+\end{description}
+
+\begin{table}[!htbp]
+\centering
+\caption{Cronograma das atividades durante os meses de Agosto à Dezembro}
+\label{cronograma}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Mês & \multicolumn{1}{l|}{\multirow{2}{*}{Agosto}} & \multicolumn{1}{l|}{\multirow{2}{*}{Setembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Outubro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Novembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Dezembro}} \\ \cline{1-1}
+Atividade & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+\ref{ativ1} & X & X &  &  &  \\ \hline
+\ref{ativ2} &  & X & X &  &  \\ \hline
+\ref{ativ3} &  & X & X & X &  \\ \hline
+\ref{ativ4} &  &  &  & X & X \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
 
 
 

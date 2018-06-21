@@ -1,27 +1,21 @@
 \chapter[Introdução]{Introdução}
 
-A busca pela ``melhor'' configuração ou conjunto de parâmetros para um
-determinado objetivo é uma preocupação recorrente de problemas práticos e
-teóricos \cite{combinatorialoptimization1998}. Em muitos desses problemas,
-realizar uma busca exaustiva por todos os estados a fim de encontrar uma
-condição não é viável devido ao tamanho de possibilidades a serem testadas. 
+A busca pela ``melhor'' configuração ou conjunto de parâmetros para um determinado objetivo é uma preocupação recorrente de problemas práticos e teóricos \cite{combinatorialoptimization1998}. Em muitos desses problemas, realizar uma busca exaustiva por todos os estados a fim de encontrar uma condição não é viável devido ao tamanho de possibilidades a serem testadas. 
 
-A ciência da computação, desde seus primórdios, também lida comumente com esses tipos de problemas. Menabrea e Lovelace relatam isso em suas notas. Em especial na nota D, em que expõem que é preferível escolher um arranjo que
-tenderá a reduzir o tempo necessário para completar o cálculo, se referindo a
-máquina de calcular de Babbage, do que necessariamente o arranjo exato
-\cite{menabrea1842sketch}.
+A ciência da computação, desde seus primórdios, também lida comumente com esses tipos de problemas. Menabrea e Lovelace relatam isso em suas notas. Em especial na nota D, em que expõem que é preferível escolher um arranjo que tenderá a reduzir o tempo necessário para completar o cálculo, se referindo a
+máquina de calcular de Babbage, do que necessariamente o arranjo exato \cite{menabrea1842sketch}.
 
-A otimização, processo de melhoramento iterativo e até mesmo interativo respeitando uma função objetivo, é uma possibilidade de solução bastante asotada para essa espécie de problema. Métodos de aproximação (heurísticas) que geram
-resultados de alta qualidade, em um tempo razoável para uso prático, são empregados como técnicas para otimizar \cite{gendreau2005metaheuristics}. Com o desenvolvimento dessa área de
-pesquisa, esses modos de aproximação foram sendo melhor estruturados e
-conceituados, criando um nível generalista e consolidado de heurísticas (meta-heurísticas).
+A otimização, processo de melhoramento iterativo e até mesmo interativo respeitando uma função objetivo, é uma possibilidade de solução bastante asotada para essa espécie de problema. Métodos de aproximação (heurísticas) que geram resultados de alta qualidade, em um tempo razoável para uso prático, são empregados como técnicas para otimizar \cite{gendreau2005metaheuristics}. Com o desenvolvimento dessa área de pesquisa, esses modos de aproximação foram sendo melhor estruturados e conceituados, criando um nível generalista e consolidado de heurísticas (meta-heurísticas).
 
-Na engenharia de software, o primeiro trabalho com o uso de meta-heurísticas em um problema de 
-otimização foi na área de testes, especificadamente na geração de dados de teste \cite{miller1976automatic}. Em 2001, foi cunhado o termo engenharia de software baseado em busca (\textit{Search-Based Software Engineering - SBSE}), propondo a reformulação da engenharia de software como um problema de busca \cite{harman2001search}. A estruturação proposta provocou a evolução de outras áreas na engenharia de software, como a estimativa de custos e o gerenciamento de projetos. Todavia, os testes continuam dominando o interesse, criando uma área própria denominada de teste de software baseado em busca (\textit{Search-Based Softare Testing - SBST}) \cite{harman2012search}
+Na engenharia de software, o primeiro trabalho com o uso de meta-heurísticas em um problema de otimização foi na área de testes, especificadamente na geração de dados de teste \cite{miller1976automatic}. Em 2001, foi cunhado o termo engenharia de software baseado em busca (\textit{Search-Based Software Engineering - SBSE}), propondo a reformulação da engenharia de software como um problema de busca \cite{harman2001search}. A estruturação proposta provocou a evolução de outras áreas na engenharia de software, como a estimativa de custos e o gerenciamento de projetos. Todavia, os testes continuam dominando o interesse, criando uma área própria denominada de teste de software baseado em busca (\textit{Search-Based Softare Testing - SBST}) \cite{harman2012search}
 
 Em teste de software baseado em busca, o principal problema pesquisado é na geração de dados para teste, substituindo a escolha empírica dos dados pelo testador \cite{mcminn2004search}. A grande maioria das abordagens de geração de dados a partir de meta-heurísticas são de objetivo único, ou seja, estão preocupadas em atingir a cobertura do código que está sendo testado \cite{harman2015achievements}. Entretanto, na realidade, é desejável que um teste consiga proporcionar outras características essenciais, como um esforço reduzido para a execução, seja ele de tempo ou espaço, e a inviolabilidade da realização do teste \cite{harman2015achievements}.
 
-O objetivo da pesquisa é explorar a área de teste multi-objetivo baseado em busca, propondo uma técnica de otimização para maximizar a cobertura de código e minimizar o esforço necessário para a execução. 
+O objetivo da pesquisa é compreender o ponto de equilíbrio de duas relações que surgem na geração de dados de teste: a cobertura de código e o esforço computacional empregado na geração dos dados, e o esforço computacional e a execução da cobertura de código. Ambas características serão aplicadas à algoritmo genético, devido a sua larga utilização nessa área e outros fatores que são melhores descritos na seção \ref{propostaestudo}.
+
+Na continuidade do trabalho é necessário o estudo a fundo desse esforço computacional a fim de conseguir definir um aspecto a ser analisado, por exemplo, o tempo de execução. Além disso, a compreensão do comportamento das iterações do algoritmo genético é importante na identificação da sua interferência na cobertura produzida. Com essas definições, será possível descrever as funções de relação e estabelecer a otimização das mesmas. 
+
+O trabalho está disposto em três principais capítulos. O Capítulo \ref{referencialteorico} apresenta o referencial téorico da pesquisa, abordando os conceitos e classificações inerentes à otimização; as meta-heurísticas como métodos probabílisticos de solução para o problemas de solução, caracterizando as principais utilizadas na engenharia de software; e a geração de dados de teste baseado em busca, expressando conceitos como cobertura de código e teste multiobjetivo. No Capítulo \ref{propostaestudo} é desenvolvida a proposta de estudo, mostrando a justificativa, os objetivos a as atividades que serão executadas para alcançar a finalidade da pesquisa. O Capítulo \ref{conclusoes}, conclui as ideias apresentadas e mostra as expectativas para o seguimento da pesquisa.
 
  
 

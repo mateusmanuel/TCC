@@ -3,7 +3,7 @@
 \chapter[Referencial Teórico]{Referencial Teórico}
 \label{referencialteorico}
 
-Esse capítulo apresenta, em linhas gerais, os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção \ref{sec:probOtimizacao}) seguida pela definição e exemplificação de meta-heuristicas (Seção \ref{sec:metaheuristica}). Por fim os trabalhos relacionados à geração de dados de teste sob a perspectiva de SBSTs serão apresentados na Seção \ref{sec:trabsSBST}.
+Esse capítulo apresenta, em linhas gerais, os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção \ref{sec:probOtimizacao}) seguida pela definição e exemplificação de meta-heurísticas (Seção \ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção \ref{sec:trabsSBST}.
 
 \section{Problema de otimização \label{sec:probOtimizacao}}
 
@@ -21,8 +21,7 @@ A otimização é um termo que vem da matemática, a qual em sua essência está
 
 onde $x_{e}$ o vetor das n variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.
 
-Na definição, a função objetivo se refere ao que se quer maximizar ou minimizar, o conjunto de variáveis é o conjunto de valores que afeta o valor da função objetivo e o conjunto de restrições é o conjunto que não permite que o conjunto de variáveis assuma
-determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um deles. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura \ref{figotimizacao01}.
+Na definição, a função objetivo se refere ao que se quer maximizar ou minimizar, o conjunto de variáveis é o conjunto de valores que afeta o valor da função objetivo e o conjunto de restrições é o conjunto que não permite que o conjunto de variáveis assuma determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um deles. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura \ref{figotimizacao01}.
 
 Os problemas típicos de otimização vão desde a minimização de funções algébricas até assuntos mais práticos em projetos de engenharia tais como a minimização de custos e a maximização de desempenho. A pergunta que todos esses problemas têm em comum é ``Dentre as soluções viáveis, qual é a melhor?''. O meio que se busca para respondê-la, após a definição das restrições e da função objetivo, é pela utilização de algum método de otimização. Os métodos de otimização que se ajustam a pergunta são os probabilísticos, no caso as heurísticas e meta-heurísticas~\cite{gandomi2013metaheuristic}.
 
@@ -97,9 +96,7 @@ A subida de encosta tem como ponto de partida o espaço de busca e um resultado 
 
 \subsection{Recozimento Simulado}
 
-Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar a Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal paramêtro é a probabilidade de aceitar soluções com menor valor de aptidão, as piores soluções \cite{kirkpatrick1983optimization}. \textbf{FRASE INCOMPLETA... REVER}
-
-
+Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar a Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão. Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. 
 
 O método consiste em iniciar com um valor alto de temperatura e à medida em que é aplicado o resfriamento, ou seja, a busca, a temperatura tende a diminuir até chegar a zero. Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente.
 
@@ -123,9 +120,7 @@ A cooperação das formigas foi a primeira forma de organização biológica ana
 
 A otimização por busca se encontra difundida em testes, pois é possível notar a atuação em todas as dimensões do teste. Seja ele estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional. Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento. Principalmente, visando a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução \cite{khari2017extensive}. 
 
-A geração de dados para teste constituti na busca de valores de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas, tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras.
-
-
+A geração de dados para teste constituti na busca de valores de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas, tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras. A finalidade que mias se almeja com a geração de dados é cobertura de código de casos que demandariam um empenho grande do testador.
 
 \subsection{Cobertura de Código}
 

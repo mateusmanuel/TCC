@@ -1,8 +1,5 @@
-%\part{Referencial Teórico}
-
-\chapter[Referencial Teórico]{Referencial Teórico}
-\label{referencialteorico}
-
+%\part{Referencial Teórico} 
+\chapter[Referencial Teórico]{Referencial Teórico} \label{referencialteorico} 
 Esse capítulo apresenta, em linhas gerais os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção~\ref{sec:probOtimizacao}) seguido pela definição e exemplificação de meta-heurísticas (Seção~\ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção~\ref{sec:trabsSBST}, seguidos pelas consideraçes finais desse capítulo (Seção \ref{sec:considFinRefTeor}).  
 
 
@@ -101,22 +98,35 @@ As meta-heurísticas possuem uma grande variabilidade de classificação que vã
 
 
 \subsection{Subida de Encosta}
+\label{sec:subidaDeEncosta}
 
-O algoritmo da Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado no algoritmo amplamente conhecido e utilizado para travessia em grafos para buscas em profundidade.
+O algoritmo de Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos e por isso é um dos algoritmos mais utilizados. Ele é baseado no algoritmo amplamente conhecido e utilizado para travessia em grafos para buscas em profundidade (Qual algoritmo?  Referenciar...). 
 
-A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado são examinados. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente até que se não consiga encontra vizinhos com melhores resultados.  
+A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente (como é feita essa escolha? a escolha é de um estado do espaço de busca.). A cada iteração, os vizinhos desse resultado são examinados. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente até que se não consiga encontra vizinhos com melhores resultados.  (Todos os estados do espaço de busca são visitados? É uma heurística, i.e., oferece resultados aproximados? Ou oferece resultados corretos? Exemplificar com um exemplo) 
 
 \subsection{Recozimento Simulado}
 
-Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar a Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão. Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. 
+Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar à Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados (ANDRE: essas limitações são apresentadas na seção \ref{sec:subidaDeEncosta}?). Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão (Andre: o que é aptidão? O termo apareceu pela primeira vez aqui, convem defini-lo para o leitor).  Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. (Andre: como se dá essa busca mais extensiva? Senti falta de uma explicação mais detalhada sobre...)
 
-O método consiste em iniciar com um valor alto de temperatura e à medida em que é aplicado o resfriamento, ou seja, a busca, a temperatura tende a diminuir até chegar a zero. Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente.
+O método consiste em iniciar com um valor alto de temperatura (representando o que?) e à medida em que é aplicado o resfriamento (o que significa o resfriamento?), ou seja, a busca, a temperatura tende a diminuir até chegar a zero (quanto chega em zero, o que significa? Solução encontrada?). Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções (mencionar busca local). Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente (problema da busca local).
+
+(ANDRE: vide seção 4.2 do artigo de \cite{youssef2001167}. Existe uma série de detalhes que podem auxiliar na explicação tanto de Recozimento Simulado, quanto demais algoritmos apresentados pelo artigo e pela dissertação.).
+
 
 \subsection{Algoritmo genético}
 
-Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) partem semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic}. Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística. Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada locus e os constituintes do resultado são por vezes denotados como genes.
+Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) partem da semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic} (Sugiro explicar melhor o conteúdo dessa frase. O que é codificação de resultados de candidatos? O que seriam os componentes simples? Qual a relação de um arranjo genético de um cromossomo? Um exemplo ilustrativo cairia muito bem nessa seção.). Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística (apresentar claramente esse paralelo: solução => cromossomo). Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada locus e os constituintes do resultado são por vezes denotados como genes. (Explicar esses elementos através do exemplo... ficará muito mais claro).
 
-A escolha de uma população inicial aleatória, conjunto de cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos. As iterações, denominadas de gerações, terminam quando a condição pré-determinada é atingida ou quando o número de gerações é excessivo. Em cada geração, cromossomos são recombinados cruzando seus genes. Uma parte da descendência dessa união sofre mutação e, a partir da prole e da população original, um processo de seleção é usado para determinar a nova população. Crucialmente, a recombinação e a seleção são guiadas pela função objetivo; cromossomos mais aptos tendo uma chance maior de serem selecionados e recombinados.
+A escolha de uma população inicial aleatória, \textit{i.e.} um conjunto de
+cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos.
+As iterações, denominadas de gerações, terminam quando a condição
+pré-determinada é atingida ou quando o número de gerações é excessivo. Em cada
+geração, cromossomos são recombinados cruzando seus genes. Uma parte da
+descendência dessa união sofre mutação e, a partir da prole e da população
+original, um processo de seleção é usado para determinar a nova população.
+Crucialmente, a recombinação e a seleção são guiadas pela função objetivo;
+cromossomos mais aptos tendo uma chance maior de serem selecionados e
+recombinados.
 
 \subsection{Inteligência de Enxame}
 

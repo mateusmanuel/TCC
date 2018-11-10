@@ -1,13 +1,14 @@
-\chapter[Apresentação da Proposta de Estudo]{Apresentação da Proposta de Estudo}
+\chapter[Proposta para geração de dados de testes usando algoritmos
+genéticos]{Proposta para geração de dados de testes usando algoritmos genéticos}
 \label{propostaestudo}
 
-A produção de dados para teste de forma automatizada é um dos principais avanços na área de engenharia de software. Isso, porque a necessidade de reproduzir comportamentos para a verificação de um código é fundamental para agregar valor no software. A geração desses dados por meta-heurísticas complementam e contribuem com o desenvolvedor. Todavia, nota-se que nem sempre esses testes gerados são realísticos. Em alguns casos acabam sendo custoso tanto o processo de geração dos dados, quanto a execução deles para medir a cobertura de código. Esses fatores, acabam sendo empecilhos para o crescimento e adoção das meta-heurísticas \cite{harman2015achievements}.
+A produção de dados para testes de forma automatizada é um dos principais avanços na área de Engenharia de Software (referencia??). Isso ocorre devido à necessidade de reproduzir comportamentos para a verificação de um código ser fundamental para agregar valor ao software. A geração desses dados por meta-heurísticas complementam e contribuem com as atividades típicas de um desenvolvedor. Todavia, nota-se que nem sempre esses testes gerados são realísticos. Em alguns casos acaba sendo custoso tanto o processo de geração dos dados quanto suas execuções para medir a cobertura de código.  Tais fatores se tornam, portanto, empecilhos para o crescimento e adoção das meta-heurísticas \cite{harman2015achievements}.
 
-Outro fator observado é que se produz e evolui as meta-heurísticas, mas pouco se estuda e analisa essas técnicas. A geração de dados de teste carece de estudo na avaliação do comportamento das iterações dos algoritmos empregados para a otimização de acordo com os testes produzidos. Algumas métricas que podem ser analisadas, por exemplo, são o tempo de execução e o número de iterações \cite{rodrigues2018using}. 
+Outro fator observado é que, em geral, há esforços empreendidos em produzir e evoluir as meta-heurísticas, mas pouco se estuda e analisa essas técnicas (aplicadas em geração de dados de teste??). A geração de dados de teste carece de estudos na avaliação do comportamento dos algoritmos empregados para a otimização de acordo com os testes produzidos. Algumas métricas que podem ser analisadas são, por exemplo, o tempo de execução e o número de iterações desses algoritmos \cite{rodrigues2018using}. 
 
-Os algoritmos genéticos são empregados com bastante frequência para a geração de dados para teste. A sua estruturação em passos (recombinação - mutação - avaliação - seleção) garante uma abrangência e ao mesmo tempo uma especificidade para os dados de teste. As duas primeiras etapas são fundamentais para promoção da variabilidade genética, enquanto que as duas últimas, tomando como base a função objetivo, restringem bem as gerações \cite{rodrigues2018using}. Esses passos são passíveis de otimização e por isso podem ser analisados a fim de que se compreenda o impacto na geração e na execução dos testes.
+Os algoritmos genéticos tem sido empregados com bastante frequência para a geração de dados para teste (referências para uso de AG em teste). A estruturação de tais algoritmos em passos (recombinação - mutação - avaliação - seleção) garante uma abrangência e ao mesmo tempo uma especificidade para os dados de teste. Os dois primeiros passos são fundamentais para promoção da variabilidade genética enquanto que os últimos dois, tomando como base a função objetivo (que função objetivo? aquela que descreve o objetivo do teste? faltou uma explicação aqui), restringem bem as gerações \cite{rodrigues2018using}.  (Senti falta de apresentar a ligação entre AG e geracao de dados de teste. Em outras palavras, a ligação é citada mas não apresentada).  Esses passos são passíveis de otimização e por isso podem ser analisados a fim de que se compreenda o impacto na geração e na execução dos testes.
 
-Dado tais justificativas, abaixo é apresentado os dois principais objetivos da pesquisa, seguido do objetivo geral a ser alcançado. 
+Dadas tais justificativas, abaixo são apresentados os dois principais objetivos da pesquisa, seguido do objetivo geral a ser alcançado. 
 
 \makeatletter
 \def\namedlabel#1#2{\begingroup
@@ -18,19 +19,21 @@ Dado tais justificativas, abaixo é apresentado os dois principais objetivos da 
 \begin{description}
 \item[\namedlabel{obj1}{Objetivo 1}] Analisar a relação entre cobertura do código e o esforço computacional para geração de dados de teste utilizando algoritmo genético.
 
-A geração de dados para teste está ligada ao processos iterativos da meta-heurística empregada. Os algoritmos genéticos tem a característica de quanto maior a geração, mais custoso é o processo de evolução \cite{pargas1999test}. Por outro lado, essas gerações tendem a proporcionar dados de teste mais específicos. Intuitivamente, percebe-se que é uma relação crescente, mas não se sabe a forma (linear, logarítmica, exponencial). A finalidade é compreender melhor o comportamento dessas duas variáveis e como elas interagem entre si durante a produção dos dados de teste. 
+A geração de dados para teste está ligada aos processos iterativos da meta-heurística empregada. Os algoritmos genéticos têm a característica de quanto maior sua geração mais custoso é o seu processo de evolução \cite{pargas1999test}. Por outro lado, essas gerações tendem a proporcionar dados de teste mais específicos. Intuitivamente, percebe-se que é uma relação crescente mas não se sabe, a princípio, sua forma (linear, logarítmica, exponencial, dentre outras). Portanto o objetivo é compreender melhor o comportamento conjunto dessas duas variáveis a saber, explicitamente, esforço computacional de geração de dados de teste e o  nível de cobertura de teste atingido. 
 		
 
 \item[\namedlabel{obj2}{Objetivo 2}] Analisar o esforço computacional empregado para execução da cobertura de código a partir dos testes gerados por algoritmo genético.
 
-A depender de como os dados de teste são gerados eles podem provocar um determinado grau de esforço computacional a ser exigido na cobertura de código. Nesse aspecto, também é possível analisar que quanto mais testes são executados, e consequentemente, mais esforço computacional é necessário, maior é a cobertura. Intuitivamente, percebe-se novamente que é uma relação crescente, mas também não se sabe a forma da função. O que se deseja é entender o modo que essas variáveis se relacionam para os algoritmos genéticos.
+A depender de como os dados de teste são gerados eles podem provocar um determinado grau de esforço computacional a ser exigido na cobertura de código.  Nesse aspecto, também é possível analisar que quanto mais testes são executados, mais esforço computacional é necessário e, possivelmente, maior será a cobertura alcançada. Intuitivamente, percebe-se novamente que é uma relação crescente mas também não se sabe a forma da função matemática que descreve a relação entre testes gerados por algoritmos genéticos e o esforço computacional de sua execução. Portanto o que se deseja é entender o modo que essas variáveis se relacionam para os algoritmos genéticos.
 
 \end{description}
 
-Com esses objetivos, o que se deseja é encontrar o ponto de equilíbrio, ou seja o ponto ótimo, para ambas análises. Deseja-se estabelecer critérios e métricas para que se consiga analisar os aspectos a serem compreendidos. 
+Com base nesses objetivos o que se deseja é encontrar o ponto de equilíbrio dessas relações, ou seja,  o ponto ótimo para ambas análises. Para tal, deseja-se estabelecer critérios e métricas para que se consiga analisar os aspectos a serem compreendidos. 
 
-Sendo assim, pode-se caracterizar o estudo de pesquisa como um problema de otimização, no qual se deseja diminuir o esforço computacional empregado para a geração de dados e execução dos teste e maximizar a cobertura de código. Como mostrado, este é um problema multiobjetivo, que se enquadra na área de Testes de Software Baseado em Busca.
+Sendo assim,  o estudo dessa pesquisa pode-se caracterizar como um problema de otimização no qual se deseja diminuir o esforço computacional empregado para a geração de dados e execução dos teste e maximizar a cobertura de código. Como mostrado, este é um problema multi-objetivo que se enquadra na área de Testes de Software Baseado em Busca.
 
+
+(REMOVER TODA ESSA SEÇAO NA PROXIMA VERSAO)
 \section{Cronograma}
 
 De acordo com a proposta que foi apresentada algumas atividades foram planejadas para dar seguimento na pesquisa.

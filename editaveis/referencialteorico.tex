@@ -115,34 +115,28 @@ O método consiste em iniciar com um valor alto de temperatura (representando o 
 
 \subsection{Algoritmo genético}
 
-Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) partem da semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic} (Sugiro explicar melhor o conteúdo dessa frase. O que é codificação de resultados de candidatos? O que seriam os componentes simples? Qual a relação de um arranjo genético de um cromossomo? Um exemplo ilustrativo cairia muito bem nessa seção.). Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística (apresentar claramente esse paralelo: solução => cromossomo). Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada locus e os constituintes do resultado são por vezes denotados como genes. (Explicar esses elementos através do exemplo... ficará muito mais claro).
+Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) partem da semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic} (Sugiro explicar melhor o conteúdo dessa frase. O que é codificação de resultados de candidatos? O que seriam os componentes simples? Qual a relação de um arranjo genético de um cromossomo? Um exemplo ilustrativo cairia muito bem nessa seção.). Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística (apresentar claramente esse paralelo: solução => cromossomo). Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada \textit{locus} e os constituintes do resultado são por vezes denotados como genes. (Explicar esses elementos através do exemplo... ficará muito mais claro).
 
-A escolha de uma população inicial aleatória, \textit{i.e.} um conjunto de
-cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos.
-As iterações, denominadas de gerações, terminam quando a condição
-pré-determinada é atingida ou quando o número de gerações é excessivo. Em cada
-geração, cromossomos são recombinados cruzando seus genes. Uma parte da
-descendência dessa união sofre mutação e, a partir da prole e da população
-original, um processo de seleção é usado para determinar a nova população.
-Crucialmente, a recombinação e a seleção são guiadas pela função objetivo;
-cromossomos mais aptos tendo uma chance maior de serem selecionados e
-recombinados.
+A escolha de uma população inicial aleatória, \textit{i.e.}, um conjunto de cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos.  As iterações, denominadas de gerações, terminam quando a condição pré-determinada (obscuro... explicar...) é atingida ou quando o número de gerações é excessivo. Em cada geração, cromossomos são recombinados cruzando seus genes. Uma parte da descendência dessa união sofre mutação e, à partir da prole e da população original, um processo de seleção é usado para determinar a nova população.  Crucialmente, a recombinação e a seleção são guiadas pela função objetivo; cromossomos mais aptos tendo uma chance maior de serem selecionados e recombinados.
+
+
+
 
 \subsection{Inteligência de Enxame}
 
-A meta-heurística Inteligência de Enxame (\textit{Swarm Intelligence}) tem como base o modelo biológico, com ênfase em como os indivíduos trabalham em conjunto com a distribuição de informações. As redes de fluxos de feromônios são o principal objetivo das formigas para decidir onde forragear. Se as formigas encontrarem aleatoriamente um obstáculo, elas procurarão métodos ao redor. No entanto, quando certas formigas encontram uma maneira de contorná-lo, as outras formigas seguem sua pista de feromônio para criar uma nova rota.
+A meta-heurística Inteligência de Enxame (\textit{Swarm Intelligence}) tem como base o modelo biológico com ênfase em como os indivíduos trabalham em conjunto com a distribuição de informações (referencia). As redes de fluxos de feromônios são o principal objetivo das formigas para decidir onde forragear. (Salto muito grande entre a primeira frase e as demais... as demais me parecem exemplificar...  talvez introduzir o exemplo). Se as formigas encontrarem aleatoriamente um obstáculo, elas procurarão métodos (métodos? não seriam caminhos?) ao redor. No entanto, quando certas formigas encontram uma maneira de contorná-lo, as outras formigas seguem sua pista de feromônio para criar uma nova rota.
 
-A cooperação das formigas foi a primeira forma de organização biológica analisada. Porém, com o passar outros métodos de otimização de inteligência de enxame surgiram, como a Otimização por Enxame de Partículas (PSO), Otimização por Colônia de Abelhas (ABC) e a Otimização por Sistemas Artificiais Imunológicos (AIS) \cite{blum2008swarm}. Em todos esses são observados determinados comportamentos da colônia como um todo, e de cada indivíduo, criando um inteligência artificial própria, que vão agregar e constituir a formulação da função objetivo do problema de otimização. As iterações vão obedecer as restrições biológicas do enxame escolhido.
+A cooperação das formigas foi a primeira forma de organização biológica analisada. Porém, com o passar do tempo  outros métodos de otimização de inteligência de enxame surgiram tais como a Otimização por Enxame de Partículas (PSO), Otimização por Colônia de Abelhas (ABC) e a Otimização por Sistemas Artificiais Imunológicos (AIS) \cite{blum2008swarm}. Em todos esses tipos de otimização determinados comportamentos da colônia e de seus indivíduos são observados como um todo criando, assim, uma inteligência artificial própria que vai agregar (agregar o que?) e constituir a formulação da função objetivo do problema de otimização. As iterações vão obedecer as restrições biológicas do enxame escolhido (restricoes nao foram apresentadas no texto... apresentar).
 
 \section{Geração de Dados de Teste de Software Baseada em Busca \label{sec:trabsSBST}}
 
-% As definições citadas acimas contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função objetivo, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
+As definições citadas anteriormente contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função objetivo, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
 
 % Além disso, pode ser observada a escalabilidade através do paralelismo que as meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de software e a computação direta dos problemas \cite{harman2012search}. Isso, devido ao software já estar representada de maneira lógica, diferente de outras engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a representação de um material físico, o que necessita de um alto poder computacional.
 
-A otimização por busca se encontra difundida em testes, pois é possível notar a atuação em todas as dimensões do teste. Seja ele estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional. Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento. Principalmente, visando a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução \cite{khari2017extensive}. 
+A otimização por busca se encontra difundida em testes pois é possível notar sua atuação em dimensões como estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional.  Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento orientado a busca. Dentre os esforços empreendidos destacam-se aqueles que visam a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução do software \cite{khari2017extensive}. (exemplificar os casos mais significativos apresentados no artigo \cite{khari2017extensive}).
 
-A geração de dados para teste constituti na busca de valores de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas, tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras. A finalidade que mias se almeja com a geração de dados é cobertura de código de casos que demandariam um empenho grande do testador.
+A geração de dados para teste constituti na busca de valores para parametros de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras. A finalidade que mais se almeja com a geração de dados é aumentar a cobertura de código de casos que demandariam um empenho grande do testador. (referencia?)
 
 \subsection{Cobertura de Código}
 
@@ -150,7 +144,12 @@ A cobertura de teste é uma medida usada para descrever o grau em que o código-
 
 \subsection{Teste Multiobjetivo Baseado em Busca}
 
-A princípio, os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Ultimamente, se propõe testes com multiobjetivos. Isso principalmente pela crescente estudo de aspectos não-funcionais nos testes.
+A princípio os casos de testes era individuais, ou seja, as funções de
+adaptação era construídas com base no caminho em que seria percorrido.
+Recentemente propõe-se testes com multiobjetivos devido a, principalmente, pela
+crescente estudo de aspectos não-funcionais nos testes. (Referencia)
+
+(Aumentar essa seção significativamente...)
 
 
 

@@ -96,13 +96,14 @@ Em uma meta-heurística são observados dois principais fatores: a investigaçã
 As meta-heurísticas possuem uma grande variabilidade de classificação que vão além daqueles mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas e estocásticas em que regras aleatórias são aplicadas durante a busca (referencia???). Dado essa diversidade as meta-heurísticas Subida de Encosto, Recozimento Simulado,  Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Engenharia de Software \cite{khari2017extensive} por tratarem, principalmente, de problemas estocásticos. (As idéias contidas nesse parágrafo são muito interessantes e merecem serem exploradas em mais detalhes. O que é determinístico? Estocástico?  Por que a Engenharia de Software lida com problemas estocásticos? Informações obtidas como respostas às essas perguntas são valiosas e contribuem muito ao seu trabalho!).
 
 
-
 \subsection{Subida de Encosta}
 \label{sec:subidaDeEncosta}
 
-O algoritmo de Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos e por isso é um dos algoritmos mais utilizados. Ele é baseado no algoritmo amplamente conhecido e utilizado para travessia em grafos para buscas em profundidade (Qual algoritmo?  Referenciar...). 
+O algoritmo de Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos e por isso é um dos algoritmos mais utilizados. Ele consiste em um busca local que investiga e substitui de forma contínua o valor crescente com relação aos valores vizinhos imediatos com o objetivo de alcançar o máximo global, ou seja, o maior valor. Durante a execução existir alguns problemas, como a identificação de um valor local mais alto, máximo local, porém ainda menor que o valor mais alto do espaço de estados. Outra dificuldade no algoritmo são os platôs, região do espaço de estados onde a função de avaliação é plana, gerando o mesmo resultado \cite{russell2016artificial}.
 
-A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente (como é feita essa escolha? a escolha é de um estado do espaço de busca.). A cada iteração, os vizinhos desse resultado são examinados. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente até que se não consiga encontra vizinhos com melhores resultados.  (Todos os estados do espaço de busca são visitados? É uma heurística, i.e., oferece resultados aproximados? Ou oferece resultados corretos? Exemplificar com um exemplo) 
+Assim sendo, o sucesso do algoritmo depende da topologia do espaço de estados. Uma adaptação bastante utilizada que mingua os problemas é a subida de encosta com reinício aleatório, onde se realiza uma série de buscas a partir de estados iniciais gerados aleatoriamente \cite{russell2016artificial}. 
+
+A complexidade de algoritmo se restringe apenas ao tempo, visto que com relação ao espaço não se guarda uma árvore de busca, apenas o estado atual e o seu valor. Para a maioria dos problemas uma solução ótima pode ser obtida em tempo polinomial. Entretanto, se o número de máximos locais for alto o tempo computacional poder ser exponencial \cite{skiena1998algorithm}.
 
 \subsection{Recozimento Simulado}
 

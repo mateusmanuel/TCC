@@ -1,6 +1,6 @@
 %\part{Referencial Teórico} 
 \chapter[Referencial Teórico]{Referencial Teórico} \label{referencialteorico} 
-Esse capítulo apresenta, em linhas gerais os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção~\ref{sec:probOtimizacao}) seguido pela definição e exemplificação de meta-heurísticas (Seção~\ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção~\ref{sec:trabsSBST}, seguidos pelas consideraçes finais desse capítulo (Seção \ref{sec:considFinRefTeor}).  
+Esse capítulo apresenta, em linhas gerais os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção~\ref{sec:probOtimizacao}) seguido pela definição e exemplificação de meta-heurísticas (Seção~\ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção~\ref{sec:trabsSBST}, seguidos pelas considerações finais desse capítulo (Seção \ref{sec:considFinRefTeor}).  
 
 
 
@@ -9,7 +9,7 @@ Esse capítulo apresenta, em linhas gerais os elementos necessários para o ente
 
 A otimização é um termo que vem da matemática que, em sua essência, está
 preocupada com a obtenção das condições que dão o valor extremo de uma ou de
-várias funções sob determinadas circunstâncias (referencia?). A definição formal
+várias funções sob determinadas circunstâncias \cite{snyman2005practical}. A definição formal
 matemática pode ser definida como: 
 
 \begin{eqnarray}
@@ -33,7 +33,7 @@ para respondê-la, após a definição das restrições e da função objetivo, 
 utilização de algum método de otimização. Os métodos de otimização que se
 ajustam a pergunta são os probabilísticos, no caso as heurísticas e
 meta-heurísticas~\cite{gandomi2013metaheuristic}. (Frase introdutória das
-meta-heurísticas que serão apresentadas nas subsecoes seguintes)
+meta-heurísticas que serão apresentadas nas subseções seguintes)
 
 \begin{figure}[h]
 	\centering
@@ -87,13 +87,13 @@ meta-heurísticas que serão apresentadas nas subsecoes seguintes)
 
 \section{Meta-heurísticas \label{sec:metaheuristica}}
 
-Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou modelos de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas de otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, enquanto as heurísticas são desenhadas e construídas para  problemas específicos. (frase muito autocontida... convém detalhar mais para explicar melhor seu conteúdo. tente explicar o que é estratégia de orientação no projeto de heurísticas subjacentes)
+Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou modelos de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas de otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, enquanto as heurísticas são desenhadas e construídas para  problemas específicos. (frase muito auto-contida... convém detalhar mais para explicar melhor seu conteúdo. tente explicar o que é estratégia de orientação no projeto de heurísticas subjacentes)
 
-Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas derivadas. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e à função objetivo do problema em questão. (Explicacao necessária para o paragrafo superior? me parece que complementa minha duvida mas ainda nao responde...)
+Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas derivadas. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e à função objetivo do problema em questão. (Explicação necessária para o paragrafo superior? me parece que complementa minha duvida mas ainda nao responde...)
 
 Em uma meta-heurística são observados dois principais fatores: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). (A ilustração desses fatores por um exemplo, cairia muito bem nesse ponto.) Esses fatores geralmente estão ligados ao tipo de solução em que as meta-heurísticas estão baseadas. As meta-heurísticas baseadas em solução única, tais como o recozimento simulado e a busca local, estão ligadas a intensificação (\textit{ie.} ao encontro de uma solução ótima com base na exploração das melhores soluções encontradas até então, ao passo que as meta-heurísticas baseadas na população, como algoritmos genéticos e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
 
-As meta-heurísticas possuem uma grande variabilidade de classificação que vão além daqueles mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas e estocásticas em que regras aleatórias são aplicadas durante a busca (referencia???). Dado essa diversidade as meta-heurísticas Subida de Encosto, Recozimento Simulado,  Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Engenharia de Software \cite{khari2017extensive} por tratarem, principalmente, de problemas estocásticos. (As idéias contidas nesse parágrafo são muito interessantes e merecem serem exploradas em mais detalhes. O que é determinístico? Estocástico?  Por que a Engenharia de Software lida com problemas estocásticos? Informações obtidas como respostas às essas perguntas são valiosas e contribuem muito ao seu trabalho!).
+As meta-heurísticas possuem uma grande variabilidade de classificação que vão além daqueles mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas e estocásticas em que regras aleatórias são aplicadas durante a busca (referencia???). Dado essa diversidade as meta-heurísticas Subida de Encosto, Recozimento Simulado,  Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Engenharia de Software \cite{khari2017extensive} por tratarem, principalmente, de problemas estocásticos. (As ideias contidas nesse parágrafo são muito interessantes e merecem serem exploradas em mais detalhes. O que é determinístico? Estocástico?  Por que a Engenharia de Software lida com problemas estocásticos? Informações obtidas como respostas às essas perguntas são valiosas e contribuem muito ao seu trabalho!).
 
 
 \subsection{Subida de Encosta}
@@ -107,7 +107,7 @@ A complexidade de algoritmo se restringe apenas ao tempo, visto que com relaçã
 
 \subsection{Recozimento Simulado}
 
-Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar à Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados (ANDRE: essas limitações são apresentadas na seção \ref{sec:subidaDeEncosta}?). Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão (Andre: o que é aptidão? O termo apareceu pela primeira vez aqui, convem defini-lo para o leitor).  Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. (Andre: como se dá essa busca mais extensiva? Senti falta de uma explicação mais detalhada sobre...)
+Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar à Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados (ANDRE: essas limitações são apresentadas na seção \ref{sec:subidaDeEncosta}?). Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão (Andre: o que é aptidão? O termo apareceu pela primeira vez aqui, convém defini-lo para o leitor).  Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. (Andre: como se dá essa busca mais extensiva? Senti falta de uma explicação mais detalhada sobre...)
 
 O método consiste em iniciar com um valor alto de temperatura (representando o que?) e à medida em que é aplicado o resfriamento (o que significa o resfriamento?), ou seja, a busca, a temperatura tende a diminuir até chegar a zero (quanto chega em zero, o que significa? Solução encontrada?). Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções (mencionar busca local). Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente (problema da busca local).
 
@@ -162,7 +162,7 @@ crescente estudo de aspectos não-funcionais nos testes. (Referencia)
 
 
 
-%\section{Consideraçoes finais \label{sec:considFinRefTeor}}
+%\section{Considerações finais \label{sec:considFinRefTeor}}
 
 
 

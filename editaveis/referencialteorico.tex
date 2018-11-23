@@ -3,8 +3,6 @@
 Esse capítulo apresenta, em linhas gerais os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção~\ref{sec:probOtimizacao}) seguido pela definição e exemplificação de meta-heurísticas (Seção~\ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção~\ref{sec:trabsSBST}, seguidos pelas considerações finais desse capítulo (Seção \ref{sec:considFinRefTeor}).  
 
 
-
-
 \section{Problema de otimização \label{sec:probOtimizacao}}
 
 A otimização é um termo que vem da matemática que, em sua essência, está
@@ -21,19 +19,11 @@ matemática pode ser definida como:
 \label{eqn03}
       x_{i}^{L} \leq x_i \leq x_{i}^{U}, \qquad i = 1, 2, ..., n 
 \end{eqnarray}
-onde $x_{e}$ (onde $x_e$ na definição?) o vetor das $n$ variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.  
+onde $x_{i}$ o vetor das $n$ variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.  
 
-Na definição, a função objetivo (onde está a representação da função objetivo em termos de coeficientes e variáveis? Ela está apenas representada por $f(x)$) se refere ao que se quer maximizar ou minimizar (na definição está apenas minimizar), o conjunto de variáveis $x_i$ é o conjunto de valores que afeta o valor da função objetivo $f(x)$ e os conjuntos de restrições $g_j(x)$ e $h_j(x)$ são os conjuntos que não permitem que as variáveis do conjunto $x_i$ assumam determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um desses elementos. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura~\ref{figotimizacao01}.
+Na definição, a função objetivo, representada por $f(x)$, se refere ao que se quer minimizar, o conjunto de variáveis $x_i$ é o conjunto de valores que afeta o valor da função objetivo $f(x)$ e os conjuntos de restrições $g_j(x)$ e $h_j(x)$ são os conjuntos que não permitem que as variáveis do conjunto $x_i$ assumam determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um desses elementos. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura~\ref{figotimizacao01}.
 
-Os problemas típicos de otimização vão desde a minimização de funções algébricas
-até assuntos mais práticos em projetos de engenharia tais como a minimização de
-custos e a maximização de desempenho. A pergunta que todos esses problemas têm
-em comum é ``Dentre as soluções viáveis, qual é a melhor?''. O meio que se busca
-para respondê-la, após a definição das restrições e da função objetivo, é pela
-utilização de algum método de otimização. Os métodos de otimização que se
-ajustam a pergunta são os probabilísticos, no caso as heurísticas e
-meta-heurísticas~\cite{gandomi2013metaheuristic}. (Frase introdutória das
-meta-heurísticas que serão apresentadas nas subseções seguintes)
+Os problemas típicos de otimização vão desde a minimização de funções algébricas até assuntos mais práticos em projetos de engenharia tais como a minimização de custos e a maximização de desempenho. A pergunta que todos esses problemas têm em comum é ``Dentre as soluções viáveis, qual é a melhor?''. O meio que se busca para respondê-la, após a definição das restrições e da função objetivo, é pela utilização de algum método de otimização. Os métodos de otimização que se ajustam a pergunta observando a classificação~\ref{figotimizacao01} são os probabilísticos, no caso as heurísticas e meta-heurísticas~\cite{gandomi2013metaheuristic}. 
 
 \begin{figure}[h]
 	\centering
@@ -87,13 +77,11 @@ meta-heurísticas que serão apresentadas nas subseções seguintes)
 
 \section{Meta-heurísticas \label{sec:metaheuristica}}
 
-Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou modelos de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas de otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, enquanto as heurísticas são desenhadas e construídas para  problemas específicos. (frase muito auto-contida... convém detalhar mais para explicar melhor seu conteúdo. tente explicar o que é estratégia de orientação no projeto de heurísticas subjacentes)
+Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou modelos de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas de otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, não orientados a uma problema, enquanto as heurísticas são desenhadas e construídas para  problemas específicos. Enquanto que servir como estratégia de orientação se refere a capacidade de ser guia e assim adaptadas no estabelecimento de técnicas mais particulares a um cenário.
 
-Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas derivadas. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e à função objetivo do problema em questão. (Explicação necessária para o paragrafo superior? me parece que complementa minha duvida mas ainda nao responde...)
+Em uma meta-heurística são observados dois principais fatores: a diversificação e a intensificação. A diversificação se refere a habilidade de gerar diversas soluções para explorar o espaço de busca na escala global, enquanto a intensificação significa concentrar-se na pesquisa em uma região local, explorando a informação de que uma boa solução atual é encontrada nesta região~\cite{yang2014metaheuristic}. Esses fatores geralmente estão ligados ao tipo de solução em que as meta-heurísticas estão baseadas. As meta-heurísticas baseadas em solução única, tais como o Recozimento Simulado e a Busca Local, tendem a explorar mais a intensificação. Ao passo que as meta-heurísticas baseadas na população, como Algoritmos Genéticos e a Inteligência de Enxame, intensificam a diversificação~\cite{talbi2009metaheuristics}. Entretanto, o equilíbrio entre tais componentes é a chave para que uma meta-heurística tenha sucesso, logo, tais exemplos fazem uso de ambas para que se encontrem as melhores soluções~\cite{yang2014metaheuristic}.
 
-Em uma meta-heurística são observados dois principais fatores: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). (A ilustração desses fatores por um exemplo, cairia muito bem nesse ponto.) Esses fatores geralmente estão ligados ao tipo de solução em que as meta-heurísticas estão baseadas. As meta-heurísticas baseadas em solução única, tais como o recozimento simulado e a busca local, estão ligadas a intensificação (\textit{ie.} ao encontro de uma solução ótima com base na exploração das melhores soluções encontradas até então, ao passo que as meta-heurísticas baseadas na população, como algoritmos genéticos e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
-
-As meta-heurísticas possuem uma grande variabilidade de classificação que vão além daqueles mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas e estocásticas em que regras aleatórias são aplicadas durante a busca (referencia???). Dado essa diversidade as meta-heurísticas Subida de Encosto, Recozimento Simulado,  Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Engenharia de Software \cite{khari2017extensive} por tratarem, principalmente, de problemas estocásticos. (As ideias contidas nesse parágrafo são muito interessantes e merecem serem exploradas em mais detalhes. O que é determinístico? Estocástico?  Por que a Engenharia de Software lida com problemas estocásticos? Informações obtidas como respostas às essas perguntas são valiosas e contribuem muito ao seu trabalho!).
+As meta-heurísticas possuem uma grande variabilidade de classificação que vão além dos mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas, onde não há a incerteza dos estados durante a busca, e estocásticas em que regras aleatórias são aplicadas durante a busca~\cite{talbi2009metaheuristics}. Dada diversidade, as meta-heurísticas Subida de Encosto, Recozimento Simulado, Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Testes de Software na Engenharia de Software por abrangerem problemas estocásticos \cite{khari2017extensive}. Isso porque em um teste de software, atém mesmo os cenários em que eventos não determinísticos ocorrem possuem importância a serem averiguados. 
 
 
 \subsection{Subida de Encosta}
@@ -106,13 +94,13 @@ Assim sendo, o sucesso do algoritmo depende da topologia do espaço de estados. 
 A complexidade de algoritmo se restringe apenas ao tempo, visto que com relação ao espaço não se guarda uma árvore de busca, apenas o estado atual e o seu valor. Para a maioria dos problemas uma solução ótima pode ser obtida em tempo polinomial. Entretanto, se o número de máximos locais for alto o tempo computacional poder ser exponencial \cite{skiena1998algorithm}.
 
 \subsection{Recozimento Simulado}
+\label{sec:recozimentoSimulado}
 
 Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar à Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados (ANDRE: essas limitações são apresentadas na seção \ref{sec:subidaDeEncosta}?). Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão (Andre: o que é aptidão? O termo apareceu pela primeira vez aqui, convém defini-lo para o leitor).  Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. (Andre: como se dá essa busca mais extensiva? Senti falta de uma explicação mais detalhada sobre...)
 
 O método consiste em iniciar com um valor alto de temperatura (representando o que?) e à medida em que é aplicado o resfriamento (o que significa o resfriamento?), ou seja, a busca, a temperatura tende a diminuir até chegar a zero (quanto chega em zero, o que significa? Solução encontrada?). Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções (mencionar busca local). Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente (problema da busca local).
 
 (ANDRE: vide seção 4.2 do artigo de \cite{youssef2001167}. Existe uma série de detalhes que podem auxiliar na explicação tanto de Recozimento Simulado, quanto demais algoritmos apresentados pelo artigo e pela dissertação.).
-
 
 \subsection{Algoritmo genético}
 
@@ -159,10 +147,7 @@ crescente estudo de aspectos não-funcionais nos testes. (Referencia)
 
 
 
-
-
-
-%\section{Considerações finais \label{sec:considFinRefTeor}}
+\section{Considerações finais \label{sec:considFinRefTeor}}
 
 
 

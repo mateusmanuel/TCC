@@ -2,11 +2,11 @@
 genéticos]{Proposta para geração de dados de testes usando algoritmos genéticos}
 \label{propostaestudo}
 
-A produção de dados para testes de forma automatizada é um dos principais avanços na área de Engenharia de Software (referencia??). Isso ocorre devido à necessidade de reproduzir comportamentos para a verificação de um código ser fundamental para agregar valor ao software. A geração desses dados por meta-heurísticas complementam e contribuem com as atividades típicas de um desenvolvedor. Todavia, nota-se que nem sempre esses testes gerados são realísticos. Em alguns casos acaba sendo custoso tanto o processo de geração dos dados quanto suas execuções para medir a cobertura de código.  Tais fatores se tornam, portanto, empecilhos para o crescimento e adoção das meta-heurísticas \cite{harman2015achievements}.
+A produção de dados para testes de forma automatizada é um dos principais avanços na área de Engenharia de Software \cite{harman2015achievements}. Isso ocorre devido à necessidade de reproduzir comportamentos para a verificação de um código ser fundamental para agregar valor ao software. A geração desses dados por meta-heurísticas complementam e contribuem com as atividades típicas de um desenvolvedor. Todavia, nota-se que nem sempre esses testes gerados são realísticos. Em alguns casos acaba sendo custoso tanto o processo de geração dos dados quanto suas execuções para medir a cobertura de código.  Tais fatores se tornam, portanto, empecilhos para o crescimento e adoção das meta-heurísticas \cite{harman2015achievements}.
 
-Outro fator observado é que, em geral, há esforços empreendidos em produzir e evoluir as meta-heurísticas, mas pouco se estuda e analisa essas técnicas (aplicadas em geração de dados de teste??). A geração de dados de teste carece de estudos na avaliação do comportamento dos algoritmos empregados para a otimização de acordo com os testes produzidos. Algumas métricas que podem ser analisadas são, por exemplo, o tempo de execução e o número de iterações desses algoritmos \cite{rodrigues2018using}. 
+Outro fator observado é que, em geral, há esforços empreendidos em produzir e evoluir as meta-heurísticas, mas pouco se estuda e analisa essas técnicas aplicadas em um determinado cenário. A geração de dados de teste carece de estudos na avaliação do comportamento dos algoritmos empregados para a otimização de acordo com os testes produzidos. Algumas métricas que podem ser analisadas são, por exemplo, o tempo de execução e o número de iterações desses algoritmos \cite{rodrigues2018using}. 
 
-Os algoritmos genéticos tem sido empregados com bastante frequência para a geração de dados para teste (referências para uso de AG em teste). A estruturação de tais algoritmos em passos (recombinação - mutação - avaliação - seleção) garante uma abrangência e ao mesmo tempo uma especificidade para os dados de teste. Os dois primeiros passos são fundamentais para promoção da variabilidade genética enquanto que os últimos dois, tomando como base a função objetivo (que função objetivo? aquela que descreve o objetivo do teste? faltou uma explicação aqui), restringem bem as gerações \cite{rodrigues2018using}.  (Senti falta de apresentar a ligação entre AG e geracao de dados de teste. Em outras palavras, a ligação é citada mas não apresentada).  Esses passos são passíveis de otimização e por isso podem ser analisados a fim de que se compreenda o impacto na geração e na execução dos testes.
+Os algoritmos genéticos tem sido empregados com bastante frequência para a geração de dados para teste \cite{rodrigues2018using}. Isso porque a geração de dados de teste é formulado como um problema de busca em que a solução consiste em encontrar os dados que ao serem testados vão atingir o objetivo do teste, que como mostrado em maioria é a cobertura. A estruturação de tais algoritmos em passos (recombinação - mutação - avaliação - seleção) garante uma abrangência e ao mesmo tempo uma especificidade para os dados de teste. Os dois primeiros passos são fundamentais para promoção da variabilidade genética enquanto que os últimos dois, tomando como base a função objetivo da otimização, restringem bem as gerações \cite{rodrigues2018using}. Esses passos são passíveis de otimização e por isso podem ser analisados a fim de que se compreenda o impacto na geração e na execução dos testes.
 
 Dadas tais justificativas, abaixo são apresentados os dois principais objetivos da pesquisa, seguido do objetivo geral a ser alcançado. 
 
@@ -33,46 +33,47 @@ Com base nesses objetivos o que se deseja é encontrar o ponto de equilíbrio de
 Sendo assim,  o estudo dessa pesquisa pode-se caracterizar como um problema de otimização no qual se deseja diminuir o esforço computacional empregado para a geração de dados e execução dos teste e maximizar a cobertura de código. Como mostrado, este é um problema multi-objetivo que se enquadra na área de Testes de Software Baseado em Busca.
 
 
-(REMOVER TODA ESSA SEÇAO NA PROXIMA VERSAO)
-\section{Cronograma}
+% (REMOVER TODA ESSA SEÇAO NA PROXIMA VERSAO)
 
-De acordo com a proposta que foi apresentada algumas atividades foram planejadas para dar seguimento na pesquisa.
+% \section{Cronograma}
 
-\begin{description}
-\item[\namedlabel{ativ1}{Atividade 1}] Estudar o comportamento das relações referentes ao \ref{obj1} e \ref{obj2}.
+% De acordo com a proposta que foi apresentada algumas atividades foram planejadas para dar seguimento na pesquisa.
 
-O objetivo dessa atividade é conseguir analisar as variáveis que influenciam a geração e execução dos testes. E necessário delimitar as propriedades da meta-heurística escolhida. Com isso, será possível pegar exemplos de uso e medi-las, a fim de identificar pontos fora da normalidade. Nesse ponto, os objetivos específicos serão observados separadamente.
+% \begin{description}
+% \item[\namedlabel{ativ1}{Atividade 1}] Estudar o comportamento das relações referentes ao \ref{obj1} e \ref{obj2}.
 
-\item[\namedlabel{ativ2}{Atividade 2}] Estudar e definir o modo como os esforços computacionais para o \ref{obj1} e \ref{obj2} podem ser medidos.
+% O objetivo dessa atividade é conseguir analisar as variáveis que influenciam a geração e execução dos testes. E necessário delimitar as propriedades da meta-heurística escolhida. Com isso, será possível pegar exemplos de uso e medi-las, a fim de identificar pontos fora da normalidade. Nesse ponto, os objetivos específicos serão observados separadamente.
 
-A partir do momento em que as pontos divergente do comum forem surgindo na atividade anterior, será possível começar a análise do esforço computacional empregado. A identificação de padrões desses esforços é um ponto a ser bastante examinado. Como resultado é esperado a definição da métrica de esforço computacional a ser provada.
+% \item[\namedlabel{ativ2}{Atividade 2}] Estudar e definir o modo como os esforços computacionais para o \ref{obj1} e \ref{obj2} podem ser medidos.
 
-\item[\namedlabel{ativ3}{Atividade 3}] Propor e analisar uma relação entre o \ref{obj1} e \ref{obj2} que capture os esforços de ambos.
+% A partir do momento em que as pontos divergente do comum forem surgindo na atividade anterior, será possível começar a análise do esforço computacional empregado. A identificação de padrões desses esforços é um ponto a ser bastante examinado. Como resultado é esperado a definição da métrica de esforço computacional a ser provada.
 
-Essa atividade tem como propósito entender o comportamentos das duas curvas das relações se equiparam, ou seja, buscar a otimização desse problema. Para tanto, será definido a função objetivo, as variáveis e as restrições do otimização. 
+% \item[\namedlabel{ativ3}{Atividade 3}] Propor e analisar uma relação entre o \ref{obj1} e \ref{obj2} que capture os esforços de ambos.
 
-\item[\namedlabel{ativ4}{Atividade 4}] Escrita dos resultados e discussões
+% Essa atividade tem como propósito entender o comportamentos das duas curvas das relações se equiparam, ou seja, buscar a otimização desse problema. Para tanto, será definido a função objetivo, as variáveis e as restrições do otimização. 
 
-A representação gráfica e sistemática das outras atividades é fundamental para a validade da pesquisa. Assim, essa atividade tem como intuito estruturar e consolidar as informações recolhidas e geradas durante o estudo. Apresentar o debate sobre as questões, os desafios de validação e a expansão para trabalhos futuros também está dentro dessa atividade.
+% \item[\namedlabel{ativ4}{Atividade 4}] Escrita dos resultados e discussões
 
-\end{description}
+% A representação gráfica e sistemática das outras atividades é fundamental para a validade da pesquisa. Assim, essa atividade tem como intuito estruturar e consolidar as informações recolhidas e geradas durante o estudo. Apresentar o debate sobre as questões, os desafios de validação e a expansão para trabalhos futuros também está dentro dessa atividade.
 
-A ordem das atividades obedece a dependência entre elas e a prioridade de cada uma. A que demanda mais tempo e que representa o objetivo geral da pesquisa é a \ref{ativ3}, por isso foi separado três meses para a sua realização. A tabela \ref{cronograma} estabelece o cronograma para a próxima parte da pesquisa, e está divida em meses na vertical e as atividades na horizontal. 
+% \end{description}
 
-\begin{table}[!htbp]
-\centering
-\caption{Cronograma das atividades durante os meses de agosto à dezembro}
-\label{cronograma}
-\begin{tabular}{|l|c|c|c|c|c|}
-\hline
-Mês & \multicolumn{1}{l|}{\multirow{2}{*}{Agosto}} & \multicolumn{1}{l|}{\multirow{2}{*}{Setembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Outubro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Novembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Dezembro}} \\ \cline{1-1}
-Atividade & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
-\ref{ativ1} & X & X &  &  &  \\ \hline
-\ref{ativ2} &  & X & X &  &  \\ \hline
-\ref{ativ3} &  & X & X & X &  \\ \hline
-\ref{ativ4} &  &  &  & X & X \\ \hline
-\end{tabular}
-\end{table}
+% A ordem das atividades obedece a dependência entre elas e a prioridade de cada uma. A que demanda mais tempo e que representa o objetivo geral da pesquisa é a \ref{ativ3}, por isso foi separado três meses para a sua realização. A tabela \ref{cronograma} estabelece o cronograma para a próxima parte da pesquisa, e está divida em meses na vertical e as atividades na horizontal. 
+
+% \begin{table}[!htbp]
+% \centering
+% \caption{Cronograma das atividades durante os meses de agosto à dezembro}
+% \label{cronograma}
+% \begin{tabular}{|l|c|c|c|c|c|}
+% \hline
+% Mês & \multicolumn{1}{l|}{\multirow{2}{*}{Agosto}} & \multicolumn{1}{l|}{\multirow{2}{*}{Setembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Outubro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Novembro}} & \multicolumn{1}{l|}{\multirow{2}{*}{Dezembro}} \\ \cline{1-1}
+% Atividade & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+% \ref{ativ1} & X & X &  &  &  \\ \hline
+% \ref{ativ2} &  & X & X &  &  \\ \hline
+% \ref{ativ3} &  & X & X & X &  \\ \hline
+% \ref{ativ4} &  &  &  & X & X \\ \hline
+% \end{tabular}
+% \end{table}
 
 
 

@@ -1,13 +1,14 @@
-%\part{Referencial Teórico}
+%\part{Referencial Teórico} 
+\chapter[Referencial Teórico]{Referencial Teórico} \label{referencialteorico} 
+Esse capítulo apresenta, em linhas gerais os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção~\ref{sec:probOtimizacao}) seguido pela definição e exemplificação de meta-heurísticas (Seção~\ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção~\ref{sec:trabsSBST}, seguidos pelas considerações finais desse capítulo (Seção \ref{sec:considFinRefTeor}).  
 
-\chapter[Referencial Teórico]{Referencial Teórico}
-\label{referencialteorico}
-
-Esse capítulo apresenta, em linhas gerais, os elementos necessários para o entendimento da proposta desse trabalho. Inicialmente será apresentado o que são problemas de otimização e como eles se caracterizam (Seção \ref{sec:probOtimizacao}) seguida pela definição e exemplificação de meta-heurísticas (Seção \ref{sec:metaheuristica}). Por fim, os conceitos relacionados à geração de dados de teste sob a perspectiva de SBST serão apresentados na Seção \ref{sec:trabsSBST}.
 
 \section{Problema de otimização \label{sec:probOtimizacao}}
 
-A otimização é um termo que vem da matemática, a qual em sua essência está preocupada com a obtenção das condições que dão o valor extremo de uma função, ou de várias funções, sob determinadas circunstâncias. A definição formal matemática pode ser dada como: 
+A otimização é um termo que vem da matemática que, em sua essência, está
+preocupada com a obtenção das condições que dão o valor extremo de uma ou de
+várias funções sob determinadas circunstâncias \cite{snyman2005practical}. A definição formal
+matemática pode ser definida como: 
 
 \begin{eqnarray}
 \label{eqn01}
@@ -18,12 +19,11 @@ A otimização é um termo que vem da matemática, a qual em sua essência está
 \label{eqn03}
       x_{i}^{L} \leq x_i \leq x_{i}^{U}, \qquad i = 1, 2, ..., n 
 \end{eqnarray}
+onde $x_{i}$ o vetor das $n$ variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.  
 
-onde $x_{e}$ o vetor das n variáveis de projeto, $f(x)$ é a função objetivo e $g_{j}(x)$ e $h_{k}(x)$ são as restrições de desigualdade e igualdade, respectivamente. Os limites das variáveis são determinados através da equação \ref{eqn03}, onde onde $x_{i}^{L}$ é o limite inferior e $x_{i}^{U}$ é o limite superior da variável $x_{m}$. Nas outras expressões, $n$, $n_{g}$ e $n_{h}$ são o número de variáveis de projeto, número de restrições de desigualdade e igualdade, respectivamente \cite{gandomi2013metaheuristic}.
+Na definição, a função objetivo, representada por $f(x)$, se refere ao que se quer minimizar, o conjunto de variáveis $x_i$ é o conjunto de valores que afeta o valor da função objetivo $f(x)$ e os conjuntos de restrições $g_j(x)$ e $h_j(x)$ são os conjuntos que não permitem que as variáveis do conjunto $x_i$ assumam determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um desses elementos. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura~\ref{figotimizacao01}.
 
-Na definição, a função objetivo se refere ao que se quer maximizar ou minimizar, o conjunto de variáveis é o conjunto de valores que afeta o valor da função objetivo e o conjunto de restrições é o conjunto que não permite que o conjunto de variáveis assuma determinados valores. Considerando tais elementos é possível classificar os problemas de otimização de acordo com as características de cada um deles. Os possíveis valores que cada elemento pode assumir em tal classificação estão descritos na Figura \ref{figotimizacao01}.
-
-Os problemas típicos de otimização vão desde a minimização de funções algébricas até assuntos mais práticos em projetos de engenharia tais como a minimização de custos e a maximização de desempenho. A pergunta que todos esses problemas têm em comum é ``Dentre as soluções viáveis, qual é a melhor?''. O meio que se busca para respondê-la, após a definição das restrições e da função objetivo, é pela utilização de algum método de otimização. Os métodos de otimização que se ajustam a pergunta são os probabilísticos, no caso as heurísticas e meta-heurísticas~\cite{gandomi2013metaheuristic}.
+Os problemas típicos de otimização vão desde a minimização de funções algébricas até assuntos mais práticos em projetos de engenharia tais como a minimização de custos e a maximização de desempenho. A pergunta que todos esses problemas têm em comum é ``Dentre as soluções viáveis, qual é a melhor?''. O meio que se busca para respondê-la, após a definição das restrições e da função objetivo, é pela utilização de algum método de otimização. Os métodos de otimização que se ajustam a pergunta observando a classificação~\ref{figotimizacao01} são os probabilísticos, no caso as heurísticas e meta-heurísticas~\cite{gandomi2013metaheuristic}. 
 
 \begin{figure}[h]
 	\centering
@@ -72,55 +72,89 @@ Os problemas típicos de otimização vão desde a minimização de funções al
             child {node[tnode] (c52) {Probabilística}}
         };
     \end{tikzpicture}
-    \caption{Classificação dos problemas de otimização \cite{gandomi2013metaheuristic}}
+    \caption{Classificação dos problemas de otimização. Adaptado de \citeonline{gandomi2013metaheuristic} }
 \end{figure}
 
 \section{Meta-heurísticas \label{sec:metaheuristica}}
 
-Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou 
-modelos de nível superior que podem ser usados como estratégias de orientação
-no projeto de heurísticas subjacentes para resolver problemas de
-otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, enquanto as heurísticas são desenhadas e construídas para  problemas específicos.
+Os métodos de busca meta-heurísticos podem ser definidos como metodologias ou modelos de nível superior que podem ser usados como estratégias de orientação no projeto de heurísticas subjacentes para resolver problemas de otimização \cite{talbi2009metaheuristics}. Ser de nível superior significa que são algoritmos de propósito geral, não orientados a uma problema, enquanto as heurísticas são desenhadas e construídas para  problemas específicos. Enquanto que servir como estratégia de orientação se refere a capacidade de ser guia e assim adaptadas no estabelecimento de técnicas mais particulares a um cenário.
 
-Como dito, elas costumam ser usadas como estratégia de orientação para o projeto de heurísticas derivadas. Isso expressa que normalmente elas são adaptadas de acordo com as restrições, as variáveis e a função objetivo do problema em questão.
+Em uma meta-heurística são observados dois principais fatores: a diversificação e a intensificação. A diversificação se refere a habilidade de gerar diversas soluções para explorar o espaço de busca na escala global, enquanto a intensificação significa concentrar-se na pesquisa em uma região local, explorando a informação de que uma boa solução atual é encontrada nesta região~\cite{yang2014metaheuristic}. Esses fatores geralmente estão ligados ao tipo de solução em que as meta-heurísticas estão baseadas. As meta-heurísticas baseadas em solução única, tais como o Recozimento Simulado e a Busca Local, tendem a explorar mais a intensificação. Ao passo que as meta-heurísticas baseadas na população, como Algoritmos Genéticos e a Inteligência de Enxame, intensificam a diversificação~\cite{talbi2009metaheuristics}. Entretanto, o equilíbrio entre tais componentes é a chave para que uma meta-heurística tenha sucesso, logo, tais exemplos fazem uso de ambas para que se encontrem as melhores soluções~\cite{yang2014metaheuristic}.
 
-Em uma meta-heurística são observados dois principais fatores: a investigação do espaço de busca (diversificação) e a exploração das melhores soluções encontradas (intensificação). Esses fatores, geralmente estão ligados ao tipo de solução em que estão baseadas as meta-heurísticas. Aquelas meta-heurísticas baseadas em solução única, tais como o recozimento simulado e a busca local, estão ligadas a intensificação ao passo que as meta-heurísticas baseadas na população, como algoritmos genético e a inteligência de enxame, estão relacionadas a diversificação \cite{talbi2009metaheuristics}.
+As meta-heurísticas possuem uma grande variabilidade de classificação que vão além dos mostrados anteriormente. Um outro fator que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas, onde não há a incerteza dos estados durante a busca, e estocásticas em que regras aleatórias são aplicadas durante a busca~\cite{talbi2009metaheuristics}. Dada diversidade, as meta-heurísticas Subida de Encosto, Recozimento Simulado, Algoritmo Genético e Inteligência de Enxame ganham destaque, principalmente na área de Testes de Software na Engenharia de Software por abrangerem problemas estocásticos \cite{khari2017extensive}. Isso porque em um teste de software, atém mesmo os cenários em que eventos não determinísticos ocorrem possuem importância a serem averiguados. 
 
-As meta-heurísticas possuem uma grande variabilidade de classificação, que vão além dos fatores mostrados anteriormente. Um outro que pode ser citado é a inspiração, podendo ser baseada em processos da natureza (a grande maioria dos casos) e não-baseada em processos naturais. A maneira de decisão dos algoritmos classifica as meta-heurísticas em determinísticas e estocásticas em que regras aleatórias são aplicadas durante a busca. Dado essa diversidade as meta-heurísticas Subida de Encosto, Recozimento Simulado,  Algoritmo Genético e  Inteligência de Enxame ganham destaque, principalmente na área de Engenharia de Software \cite{khari2017extensive} por tratarem, principalmente, de problemas estocásticos.
 
 \subsection{Subida de Encosta}
+\label{sec:subidaDeEncosta}
 
-O algoritmo da Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos, e por isso é um dos algoritmos mais utilizados. Ele é baseado no algoritmo amplamente conhecido e utilizado para travessia em grafos para buscas em profundidade.
+O algoritmo de Subida de Encosta (\textit{Hill Climbing}) é um método simples que proporciona resultados rápidos e por isso é um dos algoritmos mais utilizados. Ele consiste em um busca local que investiga e substitui de forma contínua o valor crescente com relação aos valores vizinhos imediatos com o objetivo de alcançar o máximo global, ou seja, o maior valor. Durante a execução existir alguns problemas, como a identificação de um valor local mais alto, máximo local, porém ainda menor que o valor mais alto do espaço de estados. Outra dificuldade no algoritmo são os platôs, região do espaço de estados onde a função de avaliação é plana, gerando o mesmo resultado \cite{russell2016artificial}.
 
-A subida de encosta tem como ponto de partida o espaço de busca e um resultado prévio escolhido arbitrariamente. A cada iteração, os vizinhos desse resultado são examinados. A solução atual é substituída assim que se encontra uma solução melhor. Isso ocorre sucessivamente até que se não consiga encontra vizinhos com melhores resultados.  
+Assim sendo, o sucesso do algoritmo depende da topologia do espaço de estados. Uma adaptação bastante utilizada que mingua os problemas é a Subida de Encosta com Reinício Aleatório, onde se realiza uma série de buscas a partir de estados iniciais gerados aleatoriamente~\cite{russell2016artificial}. 
+
+A complexidade de algoritmo se restringe apenas ao tempo, visto que com relação ao espaço não se guarda uma árvore de busca, apenas o estado atual e o seu valor. Para a maioria dos problemas uma solução ótima pode ser obtida em tempo polinomial. Entretanto, se o número de máximos locais for alto o tempo computacional poder ser exponencial~\cite{skiena1998algorithm}.
 
 \subsection{Recozimento Simulado}
+\label{sec:recozimentoSimulado}
 
-Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar a Subida de Encosta com a diferença que os movimentos no espaço de busca não são tão limitados. Para a exploração do espaço de busca ele utiliza um parâmetro de controle denominado temperatura. Tal parâmetro é a probabilidade de aceitar as piores soluções, ou seja, soluções com menor valor de aptidão. Aceitar as piores soluções é uma propriedade fundamental porque possibilita uma busca mais extensiva para a solução ótima global \cite{kirkpatrick1983optimization}. 
+Recozimento Simulado (\textit{Simulated Annealing}) é um algoritmo similar à Subida de Encosta, mas que tem a sua busca inspirada no recozimento de metais dado por \citeonline{kirkpatrick1983optimization}. Começando com uma solução inicial arbitrária e configurado com a perturbação adequada e a função objetivo, o algoritmo uma pesquisa estocástica parcial do espaço de estados. Movimentos ascendentes são aceitos com uma probabilidade controlada pelo parâmetro chamado temperatura (T), ou seja, a probabilidade de aceitação de movimentos ascendentes diminui quando T diminui. Assim sendo, em alta temperatura, a busca é quase aleatória, enquanto em baixa temperatura a busca torna-se quase gananciosa. No estado de temperatura igual a zero, a pesquisa é totalmente gananciosa, somente bons movimentos são aceitos~\cite{kirkpatrick1983optimization}.
 
-O método consiste em iniciar com um valor alto de temperatura e à medida em que é aplicado o resfriamento, ou seja, a busca, a temperatura tende a diminuir até chegar a zero. Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente.
+Tal como a Subida de Encosto, o Recozimento Simulado considera apenas uma solução por iteração e não realiza qualquer suposição sobre o panorama de soluções, isso porque consiste em uma busca local a fim de achar o máximo global. Outro problema que possui igualmente à Subida de Encosto é a possibilidade de ficar preso em um ótimo local quando a temperatura esfria rapidamente~\cite{youssef2001167}.
 
-\subsection{Algoritmo genético}
+O algoritmo tem como base os passos de temperatura, que tem ordem de complexidade logarítmica. Entretanto, como são realizadas as buscas nos \textit{n} estados e quando se muda a configuração os \textit{n} estados são alterados, o tempo de execução tende a ser polinomial~\cite{kirkpatrick1983optimization}.
 
-Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) partem semelhança da codificação dos resultados de candidatos como uma série de componentes simples e o arranjo genético de um cromossomo \cite{alander1998genetic}. Os resultados, nesse caso, geralmente se referem aos indivíduos (cromossomos) que utilizam essa meta-heurística. Os possíveis valores para cada componente é chamado de alelo, a sua posição específica na sequência é denominada locus e os constituintes do resultado são por vezes denotados como genes.
+\subsection{Algoritmo Genético}
 
-A escolha de uma população inicial aleatória, conjunto de cromossomos, é o primeiro passo do processo iterativo dos algoritmos genéticos. As iterações, denominadas de gerações, terminam quando a condição pré-determinada é atingida ou quando o número de gerações é excessivo. Em cada geração, cromossomos são recombinados cruzando seus genes. Uma parte da descendência dessa união sofre mutação e, a partir da prole e da população original, um processo de seleção é usado para determinar a nova população. Crucialmente, a recombinação e a seleção são guiadas pela função objetivo; cromossomos mais aptos tendo uma chance maior de serem selecionados e recombinados.
+Os Algoritmos Genéticos (\textit{Genetic Algorithms} - GA) são robustas e eficazes técnicas de otimização que tem como inspiração o mecanismo de evolução e a genética natural~\cite{holland1989genetic}. Ao contrário da busca local dos algoritmos apresentados (\ref{sec:subidaDeEncosta} e \ref{sec:recozimentoSimulado}) os GAs são caracterizados pela busca paralela no espaço de busca. A busca paralela é obtida mantendo um conjunto de possíveis soluções para o problema de otimização, a população. Cada indivíduo da população é representado por uma cadeia de símbolos que representa de forma abstrata a solução. Os símbolos são denominados de genes e cada cadeia de gene é chamada de cromossomo. Os indivíduos da população são avaliados de acordo com a função objetivo~\cite{youssef2001167}. 
+
+Para que produzir variabilidade entre os estados, a população de cromossomos evolui de geração para geração por meio de dois tipos de operadores genéticos: \textit{(1)} operadores unários, como mutação e inversão que  alteram a estrutura genética de um único cromossomo, e \textit{(2)} operador de alta ordem, chamado de recombinação, que consiste em obter um novo indivíduo cruzando o material genético de dois cromossomos parentais selecionados. Então, a nova população passa pelo processo de seleção, baseada na função objetivo, dentre os indivíduos da população atual e seus descendentes~\cite{youssef2001167}. É possível ver uma estrutura básica de um Algoritmo Genético no algoritmo \ref{algGenetico}.
+
+\begin{algorithm}[ht]
+    \label{algGenetico}
+    \SetAlgoLined
+    \Dados{$N_p$ = Tamanho da população\\
+            $N_g$ = Quantidade de gerações\\
+            $N_d$ = Quantidade de descendentes\\
+            $P_m$ = Probabilidade de mutação\\
+    }
+    \Resultado{Configuração da população (P) com maior resultado}
+    \Inicio{
+        $P \leftarrow$ \textit{ConstruirPopulacaoInicial}($N_p$) (* Inicializa os valores e aplica a função objetivo *) \\
+        \Para{$i$ de 1 ate $N_g$}{
+            \Para{$j$ de 1 ate $N_d$}{
+                ($x, y$) $\leftarrow$ \textit{SelecionarParaRecombinacao}($P$)\\
+                descendente[$j$] $\leftarrow$ \textit{Recombinacao}($x, y$)\\
+                \textit{FuncaoObjetivo}(descendente[$j$])\\
+            }
+            \Para{$j$ de 1 ate $N_d$}{
+                (* A partir da probabilidade $P_m$, selecionar o cromossomo $y$ e aplicar a mutação *)\\
+                mutado[$j$] $\leftarrow$ \textit{Mutacao}($y$)\\
+                \textit{FuncaoObjetivo}(mutado[$j$])\\
+            }
+            $P \leftarrow$ \textit{Selecao}($P$, descendente) 
+        }
+    }
+    \caption{Pseudocódigo do Algoritmo Genético. Adaptado de \citeonline{youssef2001167}}
+\end{algorithm}
+
 
 \subsection{Inteligência de Enxame}
 
-A meta-heurística Inteligência de Enxame (\textit{Swarm Intelligence}) tem como base o modelo biológico, com ênfase em como os indivíduos trabalham em conjunto com a distribuição de informações. As redes de fluxos de feromônios são o principal objetivo das formigas para decidir onde forragear. Se as formigas encontrarem aleatoriamente um obstáculo, elas procurarão métodos ao redor. No entanto, quando certas formigas encontram uma maneira de contorná-lo, as outras formigas seguem sua pista de feromônio para criar uma nova rota.
+A meta-heurística Inteligência de Enxame (\textit{Swarm Intelligence}) tem como base o modelo biológico com ênfase em como os indivíduos trabalham em conjunto com a distribuição de informações~\cite{blum2008swarm}. A cooperação das formigas foi a primeira forma de organização biológica analisada. Porém, com o passar do tempo  outros métodos de otimização de inteligência de enxame surgiram tais como a Otimização por Enxame de Partículas (PSO), Otimização por Colônia de Abelhas (ABC) e a Otimização por Sistemas Artificiais Imunológicos (AIS) \cite{blum2008swarm}. Em todos esses tipos de otimização determinados comportamentos da colônia e de seus indivíduos são observados como um todo, criando, assim, uma inteligência artificial própria que vai ponderar a otimização e constituir a formulação da função objetivo do problema. As iterações vão obedecer as restrições biológicas do enxame escolhido.
 
-A cooperação das formigas foi a primeira forma de organização biológica analisada. Porém, com o passar outros métodos de otimização de inteligência de enxame surgiram, como a Otimização por Enxame de Partículas (PSO), Otimização por Colônia de Abelhas (ABC) e a Otimização por Sistemas Artificiais Imunológicos (AIS) \cite{blum2008swarm}. Em todos esses são observados determinados comportamentos da colônia como um todo, e de cada indivíduo, criando um inteligência artificial própria, que vão agregar e constituir a formulação da função objetivo do problema de otimização. As iterações vão obedecer as restrições biológicas do enxame escolhido.
+Como dito, a Otimização por Colônia de Formigas (ACO) é um ótimo exemplo de como funciona a Inteligência de Enxame. A ACO é inspirada pelo comportamento de forrageamento, ou seja, pela busca e a exploração de recursos alimentares. No centro deste comportamento está a comunicação indireta entre as formigas por meio de
+trilhas de feromônio, o que lhes permite encontrar os caminhos curtos. Quando as formigas encontram aleatoriamente um obstáculo, elas procurarão caminhos ao redor e a medida encontram uma maneira de contorná-lo, as outras formigas seguem sua pista de feromônio para criar uma nova rota~\cite{blum2008swarm}. 
+
+Na ACO, o feromônio é empregado como a distribuição de probabilidade parametrizada sobre o espaço da solução. Tal valor é carregado pelas soluções candidatas. E essas mesmas modificam o feromônio para que a busca seja concentrada nas regiões aonde se tem as mais altas qualidades de soluções. Com tal ciclo a busca é realizada em paralelo a fim de otimizar o problema. Para tanto é necessário definir bem o modelo de feromônio e a sua atualização.
 
 \section{Geração de Dados de Teste de Software Baseada em Busca \label{sec:trabsSBST}}
 
-% As definições citadas acimas contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função objetivo, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
+As definições citadas anteriormente contribuem para o desenvolvimento da engenharia de software. Com tais, é possível observar a generalidade que se ganha com a representação de um problema e com a função objetivo, e a robustez que os algoritmos de otimização proporcionam \cite{harman2012search}. 
 
 % Além disso, pode ser observada a escalabilidade através do paralelismo que as meta-heurísticas proporcionam, a reunificação de subáreas da engenharia de software e a computação direta dos problemas \cite{harman2012search}. Isso, devido ao software já estar representada de maneira lógica, diferente de outras engenharias, que precisam da simulação dos seus artefatos. Como por exemplo, a representação de um material físico, o que necessita de um alto poder computacional.
 
-A otimização por busca se encontra difundida em testes, pois é possível notar a atuação em todas as dimensões do teste. Seja ele estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional. Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento. Principalmente, visando a geração de casos e dados de teste para a cobertura de caminhos possíveis na execução \cite{khari2017extensive}. 
+A otimização por busca se encontra difundida em testes pois é possível notar sua atuação em dimensões como estrutural (caixa branca), funcional (caixa-preta), uma mescla de ambos (caixa cinza) e não-funcional.  Entretanto, os testes estruturais foram os que mais receberam esforços para o desenvolvimento orientado a busca. Dentre os esforços empreendidos destacam-se aqueles que visam a geração de dados de teste para a cobertura de caminhos possíveis na execução do software. Outro objetivos também são estudados, como a priorização de casos de teste e a minimização de suíte de teste \cite{khari2017extensive}. 
 
-A geração de dados para teste constituti na busca de valores de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas, tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras. A finalidade que mias se almeja com a geração de dados é cobertura de código de casos que demandariam um empenho grande do testador.
+A geração de dados para teste constituti na busca de valores para parâmetros de entrada que atendam a critérios de teste específicos. Estes valores de entrada podem assumir diferentes formas tais como parâmetros de uma função, parâmetros para uma sequência de chamadas de método, dentre outras. A finalidade que mais se almeja com a geração de dados é aumentar a cobertura de código de casos que demandariam um empenho grande do testador~\cite{huo2017genetic}.
 
 \subsection{Cobertura de Código}
 
@@ -128,13 +162,12 @@ A cobertura de teste é uma medida usada para descrever o grau em que o código-
 
 \subsection{Teste Multiobjetivo Baseado em Busca}
 
-A princípio, os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Ultimamente, se propõe testes com multiobjetivos. Isso principalmente pela crescente estudo de aspectos não-funcionais nos testes.
+A princípio os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Recentemente propõe-se testes com multiobjetivos devido a, principalmente, pela
+crescente estudo de aspectos não-funcionais nos testes. Tal necessidade é fortalecida pelas meta-heurísticas que em uma única execução podem obter várias soluções, devido à pesquisa baseada na população de alguns algoritmos. Ou seja, construir testes multiobjetivos fortalece a função objetivo, delimitando-a bem e realizando melhor a otimização \cite{huo2017genetic}. 
 
+(AINDA VOU AUMENTAR ESSA PARTE QUANDO FOR FALAR DE ESFORÇO COMPUTACIONAL)
 
-
-
-
-
+\section{Considerações finais \label{sec:considFinRefTeor}}
 
 
 

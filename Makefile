@@ -38,10 +38,10 @@ all:
 	@make $(TARGET)
      
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
+	$(LATEX) -shell-escape $(MAIN_FILE) $(SOURCES)
 	$(BIBTEX) $(AUX_FILE)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
+	$(LATEX) -shell-escape $(MAIN_FILE) $(SOURCES)
+	$(LATEX) -shell-escape $(MAIN_FILE) $(SOURCES)
 	$(DVIPS) $(DVI_FILE)
 	$(PS2PDF) $(PS_FILE)
 	@cp $(PDF_FILE) $(TARGET)

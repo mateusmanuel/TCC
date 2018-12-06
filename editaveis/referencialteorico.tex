@@ -165,9 +165,13 @@ A cobertura de teste é uma medida usada para descrever o grau em que o código-
 A princípio os casos de testes era individuais, ou seja, as funções de adaptação era construídas com base no caminho em que seria percorrido. Recentemente propõe-se testes com multiobjetivos devido a, principalmente, pela
 crescente estudo de aspectos não-funcionais nos testes. Tal necessidade é fortalecida pelas meta-heurísticas que em uma única execução podem obter várias soluções, devido à pesquisa baseada na população de alguns algoritmos. Ou seja, construir testes multiobjetivos fortalece a função objetivo, delimitando-a bem e realizando melhor a otimização \cite{huo2017genetic}. 
 
-(AINDA VOU AUMENTAR ESSA PARTE QUANDO FOR FALAR DE ESFORÇO COMPUTACIONAL)
+\section{Esforço Computacional de Teste}
 
-\section{Considerações finais \label{sec:considFinRefTeor}}
+Comumente, o esforço de teste na engenharia de software tem como unidade de medida a relação entre pessoa, o testador, e tempo de teste. Os fatores que geralmente influenciam no esforço de teste são o software sob teste (ou \textit{system under testing} – SUT), a equipe, o processo de teste, o projeto  de teste, o ambiente e o \textit{testware} (artefatos  de  teste  produzidos) \cite{silva2014estimativa}.
 
+Entretanto, um outro aspecto que pode ser analisado é o tempo isoladamente, tendo uma visão de esforço computacional. Isso é comumente usado como métrica de ajuste na função objetivo para a otimização dos algoritmos de busca, como por exemplo nos algoritmos genéticos. O tempo nessa perspectiva, mais comumente, se refere ao tempo de execução do algoritmo. Mas também é possível medir os ciclos do processador e caracterizá-los como medida de tempo \cite{rodrigues2018using}.
 
+\section{Considerações Finais \label{sec:considFinRefTeor}}
+
+O referencial teórico apresentado demostra a evolução de uma linha de pesquisa que tem raízes bem sólidas e problemas bem desafiadores e atuais. Como mostrado, os algoritmos de otimização possuem várias possibilidades de aplicação dentro da Engenharia de Software. Os Testes de Software é uma área morosa e ao mesmo tempo essencial para a qualidade, despendendo assim, grandes recursos. Meta-heurísticas tornam-se então atrativos algoritmos de otimização que em maioria são empregadas na geração de dados de teste.
 

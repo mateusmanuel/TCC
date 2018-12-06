@@ -38,7 +38,7 @@ Um exemplo do script para a classe \textit{Parser} do pacote \textit{parser} que
 
 \mintinline{shell}{./run.sh org.jsoup.parser.Parser jsoup org/jsoup/parser}
 
-Em cada ensaio, são executadas 10 massas de dado que variam de 2 em 2 segundos até o limite de 20 segundos. Tal parâmetro é \mintinline{shell}{-Dsearch_budget}, que e a propriedade de execução do EVOSUITE que delimita o tempo de busca do algoritmo. Com a geração dos testes pela ferramenta, é executada a cobertura com o OpenClover que vai guardando o histórico em um diretório diferente do projeto. O EVOSUITE, por sua vez, cria o diretório \textit{evosuite-report} e armazena as estatísticas no arquivo \textit{statistics.csv}.
+Em cada ensaio, são executadas 10 massas de dado que variam de 2 em 2 segundos até o limite de 20 segundos. O \mintinline{shell}{-Dsearch_budget} é a propriedade de execução do EVOSUITE que delimita o tempo de busca. O algoritmo fixado pelo propriedade \mintinline{shell}{-Dalgorithm} foi o \mintinline{shell}{STANDARD_GA}. Com a geração dos testes pela ferramenta, é executada a cobertura com o OpenClover que vai guardando o histórico em um diretório diferente do projeto. O EVOSUITE, por sua vez, cria o diretório \textit{evosuite-report} e armazena as estatísticas no arquivo \textit{statistics.csv}.
 
 \subsection{Extração das métricas da execução da cobertura de código}
 
@@ -60,7 +60,7 @@ Para a geração dos gráficos foi produzido o script em Python \textit{plot.py}
 
 \section{Resultados \label{sec:resultados}}
 
-A princípio, não obedecendo os passos anteriormente citados, foi realizado um ensaio com todas as classes do pacote \textit{parser}
+A princípio, não obedecendo os passos anteriormente citados, foi realizado um ensaio com todas as classes do pacote \textit{parser} definindo 30 massas de dados com 1 segundo de intervalo para cado uma. Para cada massa de dado foi feita a média da cobertura e dp tempo para geração das 14 classes presentes no pacote. A Figura \ref{fig:genJsoup} representa na linha contínua de azul, a porcentagem cobertura de código, e na linha tracejada laranjada, o esforço computacional de tempo expresso em milissegundos. Tal simbolização foi seguida pra os outros gráficos apresentados.
 
 \begin{figure}[H]
 	\centering
@@ -68,6 +68,8 @@ A princípio, não obedecendo os passos anteriormente citados, foi realizado um 
 	\caption{Geração de dados de teste para o pacote \textit{jsoup.parser}}
 	\label{fig:genJsoup}
 \end{figure}
+
+Após isso, foram executados os procedimentos para as classes do pacote \textit{parser}. Para a apresentação dos resultados, bem como para a discussão, foram escolhidos três classes: a \textit{Parser}, a \textit{Tag} e a \textit{HtmlTreeBuilder}. A \textit{Parser}, com os resultados expressos na Figura \ref{fig:JsoupParser}, tem a sua importância por analisar um HTML e converter em um \textit{Document} (classe interna de representação do DOM). Além disso, é uma classe que possui várias estruturas de dados importantes do projeto. 
 
 \begin{figure}[H]
 \centering
@@ -87,20 +89,7 @@ A princípio, não obedecendo os passos anteriormente citados, foi realizado um 
 \label{fig:JsoupParser}
 \end{figure}
 
-
-% \begin{figure}[H]
-% 	\centering
-% 	\includegraphics[scale=0.6]{figuras/jsoup.parser.parser_generation.eps}
-% 	\caption{Geração de dados de teste para a classe \textit{jsoup.parser.Parser}}
-% 	\label{fig:genJsoupParser}
-% \end{figure}
-
-% \begin{figure}[H]
-% 	\centering
-% 	\includegraphics[scale=0.6]{figuras/jsoup.parser.parser_execution.eps}
-% 	\caption{Execução dos teste da classe \textit{jsoup.parser.Parser}}
-% 	\label{fig:execJsoupParser}
-% \end{figure}
+Para testar uma classe mais simples, foi escolhido a classe \textit{Tag}, que é uma classe de definição e que serve de representação para uma tag em HTML. A Figura \ref{fig:JsoupTag} consolida a execução dos passos para a classe.
 
 \begin{figure}[H]
     \centering
@@ -117,7 +106,7 @@ A princípio, não obedecendo os passos anteriormente citados, foi realizado um 
         \label{fig:execJsoupTag}
     \end{subfigure}
     \caption{Classe \textit{jsoup.parser.Tag}}
-\label{fig:test}
+\label{fig:JsoupTag}
 \end{figure}
 
 % \begin{figure}[H]
@@ -134,6 +123,7 @@ A princípio, não obedecendo os passos anteriormente citados, foi realizado um 
 % 	\label{fig:execJsoupTag}
 % \end{figure}
 
+Por fim, buscou-se escolher uma classe bem robusta e essencial a finalidade do pacote. Por isso, a classe \textit{HtmlTreeBuilder} foi selecionada. Ela é responsável pela criação da estrutura de árvore de uma página HTML, estruturando todo o DOM. Os resultados para a classe podem ser encontradas na Figura \ref{fig:JsoupHtmlTreeBuilder}.
 
 \begin{figure}[H]
     \centering
@@ -155,5 +145,55 @@ A princípio, não obedecendo os passos anteriormente citados, foi realizado um 
 
 \section{Discussão \label{sec:discussao}}
 
+A partir dos resultados apresentados foram levantados vários pontos para se discutir. Dividiu-se a discussão em três momentos: a geração dos testes, a execução dos testes e a relação entre ambos momentos. Para os dois primeiros, tanto a porcentagem de cobertura como o tempo em milissegundos foram analisados. 
+
+Um detalhe que é importante ressaltar é que as escalas dos gráficos não estão consistentes. Optou-se pela ampliação da função do que o congelamento de uma escala no eixo da abscissa e nos das ordenadas. Alguns gráficos, por exemplo, tem a cobertura variando na segunda casa decimal. Por outro, lado outros crescem em inteiros. A escolha por não fixar foi motivada para conseguir melhor observer o comportamento.
+
+\subsection{Geração dos Testes}
+
+De maneira geral, é possível observar que a cobertura de testes têm um comportamento logarítmico ao se analisar o comportamento gráfico. Logo nas primeiras massas de dados, em uma média até 6, a cobertura de código já conseguem valores altos e consistentes. Após isso, em geral começa a crescer de uma maneira mais lenta, tendo em alguns momentos declives e depois picos. 
+
+O fenômeno relatado pode ser explicado pela variabilidade que se deu na geração dentro do algoritmo genético. Seus indivíduos sofreram recombinação e isso levou a uma geração menos adaptava do que a anterior, processo natural do algoritmo genético. De qualquer forma, não é toda a população que regride, o que faz com que continuando as gerações e as seleções a adaptação a função objetivo tenda a crescer. 
+
+A Figura \ref{fig:JsoupParser} representa muito bem isso, que durante a massa de dados 8 até a 20 o que se tem são dois picos e duas depressões. O segundo pico e a segunda depressão são mais agudas, o que leva a entendem que a busca está conseguindo adentrar mais profundamente, mas que isso está gerando uma inconstância na cobertura. Em todas as figuras é possível notar em algum momento esse comportamento de oscilação.
+
+Diferente da cobertura de código, o tempo de execução na geração de testes aparenta ter uma relação mais direta com a massa de dados. Na maioria dos casos a função gráfica tende a ter o comportamento linear. Por exemplo, na Figura \ref{fig:JsoupTag} o tempo de execução cresce a medida que as massas de dados vão crescendo também.
+
+Entretanto, algumas oscilações são visíveis. Na Figura \ref{fig:JsoupParser} é possível observar que nos momentos de depressão da cobertura de código mais se elevou o esforço computacional. Essa é uma alteração brusca do comportamento, pois geralmente o que se nota são pequenas diferenças.
+
+Em alguns momentos faz-se a análise que ambas variáveis não tem uma relação explícita. Uma figura que demostra de uma maneira bem particular que existe uma dependência entre cobertura de código e esforço computacional é a Figura \ref{fig:JsoupHtmlTreeBuilder}. Nela, verifica-se que a medida cobertura vai crescendo e sofrendo suas oscilações o tempo em milissegundos vai seguindo só que em escala menor.
+
+\subsection{Execução dos Testes}
+
+A cobertura na execução dos testes teve, em suma maioria, variações constantes, mas em uma escala bem reduzida, como é visto na Figura \ref{fig:JsoupTag}. No qual a maior diferença é de apenas 0.05\% de cobertura de código. 
+
+Como a cobertura na execução foi analisada como um todo, é interessante ver o impacto da classe \textit{Parser}, que representa quase que 1/3 do que seria toda a cobertura do projeto. Enquanto que a classe \textit{Tag} quase não tem valor para o todo, ficando abaixo dos 4\%.
+
+O tempo na execução por sua vez, impressiona que em nenhum dos casos passou de 2 segundos, valor baixo ao se comparar, por exemplo, com os 60 segundos que se adquiriu na geração de testes da classe \textit{HtmlTreeBuilder}. Todavia, para a evolução das massas de dados não é possível verificar muita correspondência no tempo, já que em todos os casos existem oscilações.
+
+Em alguns momentos é possível verificar uma relação direta entre a cobertura e em outros não. De modo que, na Figura \ref{fig:JsoupParser} nota-se que na massa de dados 8 quando a cobertura decresce, o tempo também diminui. Mas que por outro lado, na massa de dados 14 e na massa de dados 18, em que também a cobertura de código caiu, o tempo de execução aumentou. Logo não é possível estabelecer uma relação direta, mas observa-se que existe um certo grau de influência.
+
+\subsection{Relação entre a Geração e a Execução dos Testes}
+
+Observando tanto cobertura de código quanto o esforço computacional, nota-se uma maior relação da cobertura de código entre a geração e a execução dos testes. O tempo, por sua vez, vínculo com a cobertura em cada momento, mas entre as etapas não é possível ter uma boa inferência.
+
+A vinculação entre a cobertura de código é bem expressada na Figura \ref{fig:JsoupHtmlTreeBuilder}, que de uma maneira mais contínua, a execução é impactada pela geração. Tanto que nas massas de dados em que se tem um declínio da cobertura, o gráfico de execução também é enternecido. Com o crescimento da cobertura na geração de dados de teste, a cobertura da execução também volta a crescer. 
+
+Nota-se que o ponto de equilíbrio entre tal relação está ligado com as oscilações que começa a sofrer. E neste momento que está se buscando mais, mas que as mesmo tempo tem-se pouca evolução. Interromper a geração em um ponto de pico dessas oscilações pode ser um bom parâmetro para a função objetivo e tende a diminuir o esforço computacional.
+
 \subsection{Ameaças a Validade}
+
+As variáveis de interesse, cobertura de código e esforço computacional expresso no tempo de execução apresentam algumas ameaças de validade, quem tem a sua origem na natureza e na especificidade de cada ferramenta. O projeto também escolhido, assim como as classes também são ameaças ao estudo. Entretanto, ambos já foram discutidos anteriormente, por isso, a seguir segue a discussão sobre a cobertura de código e o tempo de execução.
+
+\subsubsection{Cobertura de Código}
+
+A cobertura de código programada na EVOSUITE é diferente na OpenClover. A ferramenta de geração trabalha com a cobertura da classe com o qual está se produzindo os testes, por isso, a sua porcentagem sempre é superior a da ferramenta de execução dos testes. Isso, porque a OpenClover considera todos os elementos presentes no software.
+
+Mesmo o apresentado sendo uma ameaça é interessante considerar todos os elementos ao se calcular a cobertura de código, pois é possível ver o impacto da classe sobre o todo. Assim como a visão dada pela EVOSUITE mostra o comportamento da cobertura local de uma classe. Outro fator é que não se tem a certeza de que a implementação para o cálculo de cobertura levam em conta os mesmos fatores. 
+
+\subsubsection{Tempo de Execução}
+
+O tempo de execução também é divergente entre a ferramenta de geração e a de execução. A OpenClover tem seu tempo de execução muito variado porque tem passos que dependem muito da instrumentação do código para a realização do teste. Além, do fato que ao ocorrer exceções ou desvios durante a execução podem haver acréscimos ou descontos do tempo total estimado. 
+
+A EVOSUITE também produz um tempo variável, pois somente encerra quando a o processo de otimização da geração que está sendo evoluída finaliza. Assim como na anterior, quebras ou geração de descendentes no algoritmo genético vão gerar tempo adicional além do que a massa de dados estipulou.
 
